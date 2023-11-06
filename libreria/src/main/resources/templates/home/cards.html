@@ -1,15 +1,217 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      >
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Storybound Books</title>
+
     </head>
     <body>
-        <div>TODO write content</div>
+
+        <section th:fragment="cards" style="padding-top: 70px; padding-bottom: 70px;">
+            <div class="container py-6">
+                <div class="swiper mySwiper-RANDOMID">
+
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide h-100">
+                            <div class="card shadow mx-auto">
+                                <div class="card-body">
+                                    <div class="lc-block">
+                                        <img class="img-fluid"
+                                             src="https://images.unsplash.com/photo-1660861378355-d194175e4905?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8Mnx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0MzUxOTV8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
+                                             srcset="" sizes="" width="" height="" alt="Photo by Marla Gottschalk"
+                                             loading="lazy"/>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="lc-block mb-3">
+                                            <div >
+
+                                                <h2 class="h5">Card Title</h2>
+
+                                                <p>Some quick example text to build on the card title and make up the
+                                                    bulk of the card's content..</p>
+                                            </div>
+                                        </div>
+                                        <div class="lc-block">
+                                            <a class="btn btn-primary" href="#" role="button">Button</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide h-100">
+                            <div class="card shadow mx-auto">
+                                <div class="card-body">
+                                    <div class="lc-block">
+                                        <img class="img-fluid"
+                                             src="https://images.unsplash.com/photo-1617886903355-9354bb57b5d4?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8NHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
+                                             srcset="https://images.unsplash.com/photo-1617886903355-9354bb57b5d4?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8NHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1617886903355-9354bb57b5d4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8NHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1617886903355-9354bb57b5d4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8NHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1617886903355-9354bb57b5d4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8NHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1617886903355-9354bb57b5d4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8NHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1024 1024w"
+                                             sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
+                                             alt="Photo by Jon Tyson" loading="lazy"/>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="lc-block mb-3">
+                                            <div>
+
+                                                <h2 class="h5">Card Title</h2>
+
+                                                <p>Some quick example text to build on the card title and make up the
+                                                    bulk of the card's content..</p>
+                                            </div>
+                                        </div>
+                                        <div class="lc-block">
+                                            <a class="btn btn-primary" href="#" role="button">Button</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide h-100">
+                            <div class="card shadow mx-auto">
+                                <div class="card-body">
+                                    <div class="lc-block">
+                                        <img class="img-fluid"
+                                             src="https://images.unsplash.com/photo-1606685544086-ce4ab1b91c21?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
+                                             srcset="https://images.unsplash.com/photo-1606685544086-ce4ab1b91c21?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1606685544086-ce4ab1b91c21??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1606685544086-ce4ab1b91c21??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1606685544086-ce4ab1b91c21??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1606685544086-ce4ab1b91c21??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1024 1024w"
+                                             sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
+                                             alt="Photo by Vianney CAHEN" loading="lazy"/>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="lc-block mb-3">
+                                            <div>
+
+                                                <h2 class="h5">Card Title</h2>
+
+                                                <p>Some quick example text to build on the card title and make up the
+                                                    bulk of the card's content..</p>
+                                            </div>
+                                        </div>
+                                        <div class="lc-block">
+                                            <a class="btn btn-primary" href="#" role="button">Button</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide h-100">
+                            <div class="card shadow mx-auto">
+                                <div class="card-body">
+                                    <div class="lc-block">
+                                        <img class="img-fluid"
+                                             src="https://images.unsplash.com/photo-1597489276008-79951d6be8bb?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8N3x8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
+                                             srcset="https://images.unsplash.com/photo-1597489276008-79951d6be8bb?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8N3x8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1597489276008-79951d6be8bb??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8N3x8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1597489276008-79951d6be8bb??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8N3x8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1597489276008-79951d6be8bb??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8N3x8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1597489276008-79951d6be8bb??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8N3x8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1024 1024w"
+                                             sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
+                                             alt="Photo by Cherry Lin" loading="lazy"/>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="lc-block mb-3">
+                                            <div >
+
+                                                <h2 class="h5">Card Title</h2>
+
+                                                <p>Some quick example text to build on the card title and make up the
+                                                    bulk of the card's content..</p>
+                                            </div>
+                                        </div>
+                                        <div class="lc-block">
+                                            <a class="btn btn-primary" href="#" role="button">Button</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide h-100">
+                            <div class="card shadow mx-auto">
+                                <div class="card-body">
+                                    <div class="lc-block">
+                                        <img class="img-fluid"
+                                             src="https://images.unsplash.com/photo-1594398901592-4f07a2e0b5f1?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OXx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
+                                             srcset="https://images.unsplash.com/photo-1594398901592-4f07a2e0b5f1?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OXx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1594398901592-4f07a2e0b5f1??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OXx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1594398901592-4f07a2e0b5f1??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OXx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1594398901592-4f07a2e0b5f1??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OXx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1594398901592-4f07a2e0b5f1??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OXx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1024 1024w"
+                                             sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
+                                             alt="Photo by Grant Durr" loading="lazy"/>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="lc-block mb-3">
+                                            <div>
+
+                                                <h2 class="h5">Card Title</h2>
+
+                                                <p>Some quick example text to build on the card title and make up the
+                                                    bulk of the card's content..</p>
+                                            </div>
+                                        </div>
+                                        <div class="lc-block">
+                                            <a class="btn btn-primary" href="#" role="button">Button</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide h-100">
+                            <div class="card shadow mx-auto">
+                                <div class="card-body">
+                                    <div class="lc-block">
+                                        <img class="img-fluid"
+                                             src="https://images.unsplash.com/photo-1604309225246-86ad9ff7d79f?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTB8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDg3MTIxfDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
+                                             srcset="https://images.unsplash.com/photo-1604309225246-86ad9ff7d79f?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTB8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDg3MTIxfDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1604309225246-86ad9ff7d79f??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTB8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDg3MTIxfDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1604309225246-86ad9ff7d79f??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTB8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDg3MTIxfDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1604309225246-86ad9ff7d79f??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTB8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDg3MTIxfDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1604309225246-86ad9ff7d79f??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTB8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDg3MTIxfDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1024 1024w"
+                                             sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
+                                             alt="Photo by willy wo" loading="lazy"/>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="lc-block mb-3">
+                                            <div >
+
+                                                <h2 class="h5">Card Title</h2>
+
+                                                <p>Some quick example text to build on the card title and make up the
+                                                    bulk of the card's content..</p>
+                                            </div>
+                                        </div>
+                                        <div class="lc-block">
+                                            <a class="btn btn-primary" href="#" role="button">Button</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide h-100">
+                            <div class="card shadow mx-auto">
+                                <div class="card-body">
+                                    <div class="lc-block">
+                                        <img class="img-fluid"
+                                             src="https://images.unsplash.com/photo-1587117238257-8cacadca6ae4?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTd8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDM1MjA3fDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
+                                             srcset="https://images.unsplash.com/photo-1587117238257-8cacadca6ae4?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTd8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDM1MjA3fDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1587117238257-8cacadca6ae4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTd8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDM1MjA3fDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1587117238257-8cacadca6ae4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTd8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDM1MjA3fDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1587117238257-8cacadca6ae4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTd8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDM1MjA3fDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1587117238257-8cacadca6ae4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTd8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDM1MjA3fDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1024 1024w"
+                                             sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
+                                             alt="Photo by Dayana Brooke" loading="lazy"/>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="lc-block mb-3">
+                                            <div >
+
+                                                <h2 class="h5">Card Title</h2>
+
+                                                <p>Some quick example text to build on the card title and make up the
+                                                    bulk of the card's content..</p>
+                                            </div>
+                                        </div>
+                                        <div class="lc-block">
+                                            <a class="btn btn-primary" href="#" role="button">Button</a>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-pagination position-relative pt-5 bottom-0"></div>
+                </div>
+            </div>
+        </section>
     </body>
 </html>

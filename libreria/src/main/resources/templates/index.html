@@ -3,9 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org"
       >
-    <head th:replace="~{layout/plantilla :: head}"
-
-          >
+    <head th:replace="~{layout/plantilla :: head}">
         <title>Storybound Books</title>
     </head>
     <body>
@@ -13,7 +11,10 @@
         <main>
             <section th:replace="~{home/hero :: hero}"/>
             <section th:replace="~{home/carrousel :: carrousel}"/>
-            <!--<section th:replace="~{home/ :: corrousel}"/>-->
+            <section th:replace="~{home/cards :: cards}"/>
+            <section th:replace="~{home/servicios :: servicios}"/>
+            
+            
         </main>
         
         <footer th:replace="~{layout/plantilla :: footer}"/>

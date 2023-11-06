@@ -10,6 +10,42 @@
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+        <!--CODIO PARA LOS CARDS-->
+        <link rel="preload" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" as="style"
+              onload="this.onload = null;this.rel = 'stylesheet'"/>
+        <script defer="defer" src="https://unpkg.com/swiper@8/swiper-bundle.min.js"
+        onload="initializeSwiperRANDOMID();"></script>
+        <script>
+            function initializeSwiperRANDOMID() {
+                const swiper = new Swiper(".mySwiper-RANDOMID", {
+                    slidesPerView: 1,
+                    grabCursor: true,
+                    spaceBetween: 30,
+
+                    pagination: {
+                        el: ".swiper-pagination",
+                        dynamicBullets: true,
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 2,
+                        },
+                        992: {
+                            slidesPerView: 3,
+                        },
+                    },
+                });
+            }
+        </script>
+
+        <style>
+            .mySwiper-RANDOMID .card {
+                max-width: 21rem
+            }
+        </style>
+        <!--FIN DE CODIO PARA LOS CARDS-->
+
     </head>
     <body>
         <header th:fragment="header">
