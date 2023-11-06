@@ -8,15 +8,15 @@
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
-        <main>
-            <section th:replace="~{home/hero :: hero}"/>
-            <section th:replace="~{home/carrousel :: carrousel}"/>
-            <section th:replace="~{home/cards :: cards}"/>
-            <section th:replace="~{home/servicios :: servicios}"/>
-            <!--<section th:replace="~{nosotros/nosotros :: nosotros}"/>--> 
-            
-        </main>
-       <!--footer--> 
+
+
+        <main th:replace="~{home/home :: home}"/>
+
+
+        <!--<section th:replace="~{nosotros/nosotros :: nosotros}"/>-->
+
+
+        <!--footer--> 
         <footer th:replace="~{layout/plantilla :: footer}"/>
     </body>
 </html>
