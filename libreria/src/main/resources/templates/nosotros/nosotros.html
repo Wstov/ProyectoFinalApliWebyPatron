@@ -8,6 +8,8 @@
     </head>
 
     <body>
+        <div th:include="layout/plantilla.html::header"></div>
+
         <main th:fragment="nosotros">
             <section class="py-4">
                 <div class="container">
@@ -188,7 +190,7 @@
 
 
         </main>
-
+        <div th:include="layout/plantilla.html::footer"></div>
     </body>
 
 </html>
