@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      >
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Storybound Books</title>
+        <link th:href="@{/css/heroic-features.css" rel="stylesheet}"/>
+    </head>
+
+    <body>
+
+        <!-- Navigation -->
+        <div th:insert="~{admin/template_admin.html::header}"></div>
+
+        <!-- Page Content -->
+        <div class="container pb-4">
+
+            <!-- Page Heading/Breadcrumbs -->
+            <h1 class="mt-4 mb-3">
+                Storybound Books
+            </h1>
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a th:href="@{/admin}">Inicio</a></li>
+                <li class="breadcrumb-item active">Ver Productos</li>
+            </ol>
+
+            <a class="btn btn-primary" th:href="@{/admin/products/create}" >Crear Producto</a>
+            <h2>Lista de Productos</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Autor</th>
+                        <th scope="col">Genero</th>
+                        <th scope="col">Formato</th>
+                        <th scope="col">Idioma</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Eliminar</th>
+                        <th scope="col">Inventario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="libro:${libros}">
+                        <td th:text="${libro.name}"></td>
+                        <td th:text="${libro.autor}"></td>
+                        <td th:text="${libro.genero}"></td>
+                        <td th:text="${libro.formato}"></td>
+                        <td th:text="${libro.idioma}"></td>
+                        <td th:text="${libro.price}"></td>
+                        
+                        <td><a class="btn btn-warning" href="#">Editar</a></td>
+                        <td><a class="btn btn-danger" href="#">Eliminar</a></td>
+                        <td><a  class="btn btn-dark" href="#">Inventario</a></td>
+                    </tr>       
+                </tbody>
+            </table>
+
+        </div>
+        <!-- /.container -->
+
+        <!-- Footer -->
+        <div th:insert="~{layout/plantilla.html::footer}"></div>
+
+        <!-- Bootstrap core JavaScript -->
+<!--        <script th:src="@{vendor/jquery/jquery.min.js}"></script>
+        <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>-->
+
+    </body>
+
+</html>
