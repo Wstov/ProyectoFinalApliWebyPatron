@@ -19,7 +19,7 @@ public class Product {
     private String autor;
     private String genero;
     private String formato;
-    private String publicacion;
+    private Integer publicacion;
     private String idioma;
     private String description;
     private String image;

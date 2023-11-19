@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="users")
+@Table(name="usuarios")
 @Data
 @NoArgsConstructor
 public class UserEntity {
@@ -27,8 +27,5 @@ public class UserEntity {
     @Enumerated(EnumType.STRING)
     private UserType userType;
     private LocalDateTime dateCreated;
-
-
-
 
 }

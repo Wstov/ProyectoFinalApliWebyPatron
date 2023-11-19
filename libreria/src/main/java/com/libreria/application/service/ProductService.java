@@ -28,8 +28,11 @@ public class ProductService {
     }
 
     public Product saveProduct(Product product){
+        User user = new User();
+        user.setId(1);
         product.setDateCreated(LocalDateTime.now());
         product.setDateUpdated(LocalDateTime.now());
+        product.setUser(user);
         return  productRepository.saveProduct(product);
     }
 
