@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -38,13 +39,26 @@ public class ProductController {
         return "redirect:/admin";
     }
 
+//    Metodo para la pagina donde se muetran la lista de los productos o libros
     @GetMapping("/show")
     public String showProduct(Model model){
         User user = new User();
         user.setId(1);
         Iterable<Product> products = productService.getProductsByUser(user);
-        model.addAttribute("libros", products);
+        model.addAttribute("books", products);
         
         return "admin/products/show";
+    }
+    
+//    Metodo para la accion del boton de editar, haga una peticion y muestre el objeto para poder editarlo
+    @GetMapping("/edit/{id}") //paso de parametros, /{parametro}= para pasar mas parametros
+    public String editProduct(@PathVariable Integer id, Model model){
+        Product product = productService.getProductById(id);
+        log.info("Product obtenido: {}", product);
+        model.addAttribute("book", product); // con model.addAttribute se pasa el model a la vista.
+        
+        return "admin/products/edit";
+        
+        
     }
 }

@@ -13,19 +13,28 @@
         <div th:insert="~{admin/template_admin.html::header}"></div>
 
         <!-- Page Content -->
-        <div class="container pb-4">
+        <div class="container pb-5">
+            <div class="p-5 lc-block">
 
-            <!-- Page Heading/Breadcrumbs -->
-            <h1 class="mt-4 mb-3">
-                Storybound Books
-            </h1>
+                <div class="lc-block">
+                    <div>
+                        <h2 class="fw-bolder display-3">Storybound Books.
+                        </h2>
+                    </div>
+                </div>
+                <div class="lc-block col-md-8">
+                    <div>
+                        <p class="lead">Actualizar la información del libro.</p>
+                    </div>
+                </div>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a th:href="@{/admin}">Inicio</a></li>
+                    <li class="breadcrumb-item active">Editar Libro</li>
+                </ol>
+                <a class="btn btn-primary" th:href="@{/admin/products/create}" >Crear Producto</a>
+           
 
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a th:href="@{/admin}">Inicio</a></li>
-                <li class="breadcrumb-item active">Ver Productos</li>
-            </ol>
-
-            <a class="btn btn-primary" th:href="@{/admin/products/create}" >Crear Producto</a>
+            
             <h2>Lista de Productos</h2>
             <table class="table">
                 <thead>
@@ -42,21 +51,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="libro:${libros}">
-                        <td th:text="${libro.name}"></td>
-                        <td th:text="${libro.autor}"></td>
-                        <td th:text="${libro.genero}"></td>
-                        <td th:text="${libro.formato}"></td>
-                        <td th:text="${libro.idioma}"></td>
-                        <td th:text="${libro.price}"></td>
-                        
-                        <td><a class="btn btn-warning" href="#">Editar</a></td>
+                    <tr th:each="book:${books}">
+                        <td th:text="${book.name}"></td>
+                        <td th:text="${book.autor}"></td>
+                        <td th:text="${book.genero}"></td>
+                        <td th:text="${book.formato}"></td>
+                        <td th:text="${book.idioma}"></td>
+                        <td th:text="${book.price}"></td>
+
+                        <td><a class="btn btn-warning" th:href="@{/admin/products/edit/{id} (id = ${book.id})}">Editar</a></td>
                         <td><a class="btn btn-danger" href="#">Eliminar</a></td>
                         <td><a  class="btn btn-dark" href="#">Inventario</a></td>
                     </tr>       
                 </tbody>
             </table>
-
+            </div>
         </div>
         <!-- /.container -->
 

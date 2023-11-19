@@ -8,73 +8,80 @@
     </head>
     <body>
         <div th:insert="admin/template_admin.html::header"></div>
-        
+
         <!-- Page Content -->
-    <div class="container">
+        <div class="container pb-5">
 
-      <!-- Jumbotron Header -->
-      <header class="jumbotron my-4">
-        <h1 class="display-3">Bienvenido a Storybound Books 2023</h1>
-        <p class="lead">Tu tienda de libros en Línea</p>
-      </header>
+            <div class="p-5 lc-block">
 
-      <!-- Page Features -->
-      <div class="row text-center">
+                <div class="lc-block">
+                    <div>
+                        <h2 class="fw-bolder display-3">Bienvenido a Storybound Books.
+                        </h2>
+                    </div>
+                </div>
+                <div class="lc-block col-md-8">
+                    <div>
+                        <p class="lead">Tienda de libros en linea.</p>
+                    </div>
+                </div>
 
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card h-100">
-            <img class="card-img-top" src="http://placehold.it/500x325" alt=""/>
-            <div class="card-body">
-              <p class="card-text">Nombre del producto.</p>
+                <div class="row text-center">
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="http://placehold.it/500x325" alt=""/>
+                            <div class="card-body">
+                                <p class="card-text">Nombre del producto.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="productohome.html" class="btn btn-success">Ver producto</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="http://placehold.it/500x325" alt=""/>
+                            <div class="card-body">
+                                <p class="card-text">Nombre del producto.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-success">Ver producto</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="http://placehold.it/500x325" alt=""/>
+                            <div class="card-body">
+                                <p class="card-text">Nombre del producto.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-success">Ver producto</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="http://placehold.it/500x325" alt=""/>
+                            <div class="card-body">
+                                <p class="card-text">Nombre del producto.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-success">Ver producto</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card-footer">
-              <a href="productohome.html" class="btn btn-success">Ver producto</a>
-            </div>
-          </div>
+            <!-- /.row -->
+
         </div>
+        <!-- /.container -->
 
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card h-100">
-            <img class="card-img-top" src="http://placehold.it/500x325" alt=""/>
-            <div class="card-body">
-              <p class="card-text">Nombre del producto.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-success">Ver producto</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card h-100">
-            <img class="card-img-top" src="http://placehold.it/500x325" alt=""/>
-            <div class="card-body">
-              <p class="card-text">Nombre del producto.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-success">Ver producto</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card h-100">
-            <img class="card-img-top" src="http://placehold.it/500x325" alt=""/>
-            <div class="card-body">
-              <p class="card-text">Nombre del producto.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-success">Ver producto</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <!-- /.row -->
-
-    </div>
-    <!-- /.container -->
-        
         <div th:insert="layout/plantilla.html::footer"></div>
-       
+
     </body>
 </html>
