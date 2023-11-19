@@ -1,5 +1,6 @@
 package com.libreria.infrastructure.mapper;
 
+
 import com.libreria.domain.Product;
 import com.libreria.infrastructure.entity.ProductEntity;
 import org.mapstruct.InheritInverseConfiguration;
@@ -15,12 +16,16 @@ public interface ProductMapper {
     @Mappings({
             @Mapping(source = "id", target = "id"),
             @Mapping(source = "name", target = "name"),
+            @Mapping(source = "autor", target = "autor"),
+            @Mapping(source = "genero", target = "genero"),
+            @Mapping(source = "formato", target = "formato"),
+            @Mapping(source = "publicacion", target = "publicacion"),
+            @Mapping(source = "idioma", target = "idioma"),
             @Mapping(source = "description", target = "description"),
             @Mapping(source = "price", target = "price"),
             @Mapping(source = "dateCreated", target = "dateCreated"),
             @Mapping(source = "dateUpdated", target = "dateUpdated"),
             @Mapping(source = "userEntity", target = "user")
-
 
     })
     Product toProduct(ProductEntity productEntity);

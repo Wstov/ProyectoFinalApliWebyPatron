@@ -6,24 +6,31 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
+import lombok.ToString;
 
 @Data
 @AllArgsConstructor
+@ToString
 public class Product {
-       private Integer id;
-       private String code;
-       private String name;
-       private String description;
-       private String image;
-       private BigDecimal price;
 
-       private LocalDateTime dateCreated;
-       private LocalDateTime dateUpdated;
+    private Integer id;
+    private String code;
+    private String name;
+    private String autor;
+    private String genero;
+    private String formato;
+    private String publicacion;
+    private String idioma;
+    private String description;
+    private String image;
+    private BigDecimal price;
 
-       private User user;
+    private LocalDateTime dateCreated;
+    private LocalDateTime dateUpdated;
 
+    private User user;
 
-       public Product(){
-              this.setCode(UUID.randomUUID().toString()); //asigna un codigo aleatorio y automaticamente a la creacion de un producto
-       }
+    public Product() {
+        this.setCode(UUID.randomUUID().toString()); //asigna un codigo aleatorio y automaticamente a la creacion de un producto
+    }
 }

@@ -4,6 +4,7 @@ package com.libreria.application.service;
 import com.libreria.application.repository.ProductRepository;
 import com.libreria.domain.Product;
 import com.libreria.domain.User;
+import java.time.LocalDateTime;
 
 
 public class ProductService {
@@ -27,6 +28,8 @@ public class ProductService {
     }
 
     public Product saveProduct(Product product){
+        product.setDateCreated(LocalDateTime.now());
+        product.setDateUpdated(LocalDateTime.now());
         return  productRepository.saveProduct(product);
     }
 
