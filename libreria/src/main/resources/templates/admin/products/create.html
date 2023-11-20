@@ -4,7 +4,7 @@
       xmlns:th="http://www.thymeleaf.org">
     <head th:replace="~{layout/plantilla :: head}">
         <title>Storybound Books</title>
-        
+
     </head>
 
     <body>
@@ -37,42 +37,57 @@
 
                         <div class="form-group mb-4">
                             <label for="name">Nombre del Libro:</label>
-<!--                            <input name="mouseglue" type="text" class="form-control"  placeholder="Ingrese el nombre del libro" value=""
-                                   autocomplete="off" hidden="" />-->
+                            <!--                            <input name="mouseglue" type="text" class="form-control"  placeholder="Ingrese el nombre del libro" value=""
+                                                               autocomplete="off" hidden="" />-->
                             <input name="name" type="text" class="form-control" id="name" placeholder="Ingrese el nombre del libro" value=""/>
                         </div>
 
                         <div class="form-group mb-4">
                             <label for="autor">Autor:</label>
-<!--                            <input name="autor" type="text" class="form-control" placeholder="Ingrese el autor del libro" value=""
-                                   autocomplete="off" hidden=""/>-->
+                            <!--                            <input name="autor" type="text" class="form-control" placeholder="Ingrese el autor del libro" value=""
+                                                               autocomplete="off" hidden=""/>-->
                             <input name="autor" type="text" class="form-control" id="autor" placeholder="Ingrese el autor del libro" value=""/>
                         </div>
 
                         <div class="form-group mb-4">
                             <label for="genero">Género:</label>
-<!--                            <input name="genero" type="text" class="form-control" id="genero" placeholder="Ingrese el género del libro" value=""
-                                   autocomplete="off" hidden=""/>-->
-                            <input name="genero" type="text" class="form-control" id="genero" placeholder="Ingrese el género del libro" value=""/>
+
+                            <div class="input-group mb-3">
+                                <select class="form-select" id="genero" name="genero">
+                                    <option selected="">Agregar género...</option>
+                                    <option value="Ficción">Ficción</option>
+                                    <option value="Infantil">Infantil</option>
+                                    <option value="Filosofía">Filosofía</option>
+                                    <option value="Salud">Salud</option>
+                                    <option value="Crimen">Crimen</option>
+                                    <option value="Superación">Superación</option>
+                                    <option value="Espiritualidad">Espiritualidad</option>
+                                    <option value="Historia">Historia</option>
+                                    <option value="Terror">Terror</option>
+                                    <option value="Novela">Novela</option>
+                                    <option value="Clásicos">Clásicos</option>
+                                    <option value="Poesía">Poesía</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="form-group mb-4">
                             <label for="formato">Formato:</label>
-<!--                            <input name="formato" type="text" class="form-control" id="formato" placeholder="Ingrese el formato en el que esta el libro" value=""
-                                   autocomplete="off" hidden=""/>-->
+                            <!--                            <input name="formato" type="text" class="form-control" id="formato" placeholder="Ingrese el formato en el que esta el libro" value=""
+                                                               autocomplete="off" hidden=""/>-->
                             <input name="formato" type="text" class="form-control" id="formato" placeholder="Ingrese el formato en el que esta el libro" value=""/>
                         </div>
 
                         <div class="form-group mb-4">
                             <label for="publicacion">Año de Publicación:</label>
-<!--                            <input name="publicacion" type="text" class="form-control" id="publicacion" placeholder="Ingrese un año de publicación del libro" value=""
-                                   autocomplete="off" hidden=""/>-->
+                            <!--                            <input name="publicacion" type="text" class="form-control" id="publicacion" placeholder="Ingrese un año de publicación del libro" value=""
+                                                               autocomplete="off" hidden=""/>-->
                             <input name="publicacion" type="text" class="form-control" id="publicacion" placeholder="Ingrese  un año de publicación del libro" value=""/>
                         </div>
 
                         <div class="form-group mb-4">
                             <label for="idioma">Idioma:</label>
-                            
+
                             <div class="input-group mb-3">
                                 <select class="form-select" id="idioma" name="idioma">
                                     <option selected="" >Seleccione un Idioma...</option>
@@ -80,9 +95,8 @@
                                     <option value="Ingles">Ingles</option>
                                     <option value="Italiano">Italiano</option>
                                 </select>
-                                
-                            </div>
 
+                            </div>
                         </div>
 
                         <div class="form-group mb-4">
@@ -109,8 +123,8 @@
 
         <div th:insert="~{layout/plantilla.html::footer}"></div>
 
-<!--        <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-        <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>-->
+        <!--        <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+                <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>-->
     </body>
 </html>
 

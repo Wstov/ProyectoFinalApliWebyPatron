@@ -33,10 +33,10 @@ public class ProductController {
 //    Guardar los productos en la base de datos
     @PostMapping("/save-product")
     public String saveProduct(Product product ){
-        log.info("Nombre de producto: {}", product);
+        //log.info("Nombre de producto: {}", product);
         productService.saveProduct(product);
 //        return "admin/products/create";
-        return "redirect:/admin";
+        return "redirect:/admin/products/show";
     }
 
 //    Metodo para la pagina donde se muetran la lista de los productos o libros
@@ -53,11 +53,17 @@ public class ProductController {
     
 //    Metodo para la accion del boton de editar, haga una peticion y muestre el objeto para poder editarlo
     @GetMapping("/edit/{id}") //paso de parametros, /{parametro}= para pasar mas parametros
-    public String editProduct(@PathVariable Integer id, Model model){
+    public String editProduct(@PathVariable Integer id, Model model){ //@PathVariable permite trabajar con la variable que se integra en "/edit/{id}"
         Product product = productService.getProductById(id);
-        log.info("Product obtenido: {}", product);
+        //log.info("Product obtenido: {}", product);
         model.addAttribute("book", product); // con model.addAttribute se pasa el model a la vista.
         
         return "admin/products/edit";  
+    }
+    
+    @GetMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable Integer id){
+        productService.deleteProductById(id);
+        return "redirect:/admin/products/show";
     }
 }

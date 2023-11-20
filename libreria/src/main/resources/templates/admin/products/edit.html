@@ -9,6 +9,7 @@
 
     <body>
         <div th:insert="~{admin/template_admin.html::header}"></div>
+        
         <section class="bg-light">
             <div class="container pb-5">
                 <div class="p-5 lc-block">
@@ -47,12 +48,34 @@
                             <input name="autor" type="text" class="form-control" id="autor" placeholder="Ingrese el autor del libro" th:value="${book.autor}"/>
                         </div>
 
+                        <!--                        <div class="form-group mb-4">
+                                                    <label for="genero">Género:</label>
+                                                                                <input name="genero" type="text" class="form-control" id="genero" placeholder="Ingrese el género del libro" value=""
+                                                                                       autocomplete="off" hidden=""/>
+                                                    <input name="genero" type="text" class="form-control" id="genero" placeholder="Ingrese el género del libro" th:value="${book.genero}"/>
+                                                </div>-->
+
                         <div class="form-group mb-4">
                             <label for="genero">Género:</label>
-                            <!--                            <input name="genero" type="text" class="form-control" id="genero" placeholder="Ingrese el género del libro" value=""
-                                                               autocomplete="off" hidden=""/>-->
-                            <input name="genero" type="text" class="form-control" id="genero" placeholder="Ingrese el género del libro" th:value="${book.genero}"/>
+
+                            <div class="input-group mb-3">
+                                <select class="form-select" id="genero" name="genero">
+                                    <option value="Ficción" th:selected="${book.genero == 'Ficción'}">Ficción</option>
+                                    <option value="Infantil" th:selected="${book.genero == 'Infantil'}">Infantil</option>
+                                    <option value="Filosofía" th:selected="${book.genero == 'Filosofía'}">Filosofía</option>
+                                    <option value="Salud" th:selected="${book.genero == 'Salud'}">Salud</option>
+                                    <option value="Crimen" th:selected="${book.genero == 'Crimen'}">Crimen</option>
+                                    <option value="Superación" th:selected="${book.genero == 'Superación'}">Superación</option>
+                                    <option value="Espiritualidad" th:selected="${book.genero == 'Espiritualidad'}">Espiritualidad</option>
+                                    <option value="Historia" th:selected="${book.genero == 'Historia'}">Historia</option>
+                                    <option value="Terror" th:selected="${book.genero == 'Terror'}">Terror</option>
+                                    <option value="Novela" th:selected="${book.genero == 'Novela'}">Novela</option>
+                                    <option value="Clásicos" th:selected="${book.genero == 'Clásicos'}">Clásicos</option>
+                                    <option value="Pesía" th:selected="${book.genero == 'Pesía'}">Pesía</option>
+                                </select>
+                            </div>
                         </div>
+
 
                         <div class="form-group mb-4">
                             <label for="formato">Formato:</label>
@@ -70,9 +93,16 @@
 
                         <div class="form-group mb-4">
                             <label for="idioma">Idioma:</label>
-                            <!--                            <input name="publicacion" type="text" class="form-control" id="publicacion" placeholder="Ingrese un año de publicación del libro" value=""
-                                                               autocomplete="off" hidden=""/>-->
-                            <input name="idioma" type="text" class="form-control" id="idioma" placeholder="Ingrese  un año de publicación del libro" th:value="${book.idioma}"/>
+
+                            <div class="input-group mb-3">
+                                <select class="form-select" id="idioma" name="idioma">
+                                    <option value="Español" th:selected="${book.idioma == 'Español'}">Español</option>
+                                    <option value="Ingles" th:selected="${book.idioma == 'Ingles'}">Ingles</option>
+                                    <option value="Italiano" th:selected="${book.idioma == 'Italiano'}">Italiano</option>
+                                </select>
+
+                            </div>
+
                         </div>
 
                         <div class="form-group mb-4">
@@ -91,6 +121,7 @@
                                 <input type="file" class="form-control-file" id="img" name="img"/>
                             </div>
                         </div>
+                        
                         <button type="submit" class="btn btn-primary btn-lg mt-5" style="width: 100%;">Guardar</button>
                     </form>
                 </div>
