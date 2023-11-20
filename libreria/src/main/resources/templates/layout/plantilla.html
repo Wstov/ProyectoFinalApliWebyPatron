@@ -54,7 +54,7 @@
         <header th:fragment="header">
             <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
                 <div class="container">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" th:href="@{/home}">
                         <img src="/img/logobook.png" width="97" height="48" class="align-middle me-1"
 
                              alt="Logo"/></a>
@@ -70,7 +70,11 @@
                             <ul id="menu-menu-1" class="navbar-nav me-auto mb-2 mb-md-0 navbar-nav">
                                 <li
                                     class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738">
-                                    <a th:href="@{/nosotros}" class="nav-link ">Nosotros</a>
+                                    <a th:href="@{/home}" class="nav-link ">Inicio</a>
+                                </li>
+                                <li
+                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738">
+                                    <a th:href="@{/home/nosotros}" class="nav-link ">Nosotros</a>
                                 </li>
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom nav-item nav-item-32739">
                                     <a href="#" class="nav-link ">Servicios</a>
@@ -97,9 +101,9 @@
                                     Home
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item" href="#">Incio</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/home}">Incio</a></li>
                                     <li><a class="dropdown-item" href="#">Servicios</a></li>
-                                    <li><a class="dropdown-item" href="#">Nosotros</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/home/nosotros}">Nosotros</a></li>
                                     <li><a class="dropdown-item" href="#">Contacto</a></li>
                                     <li><a class="dropdown-item" th:href="@{/admin}">Admin</a></li>
                                     <li><a class="dropdown-item" href="#">Salir</a></li>

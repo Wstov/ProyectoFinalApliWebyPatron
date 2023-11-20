@@ -39,7 +39,8 @@
                     <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">Autor</th>
-                        <th scope="col">Genero</th>
+                        <th scope="col">Editorial</th>
+                        <th scope="col">Género</th>
                         <th scope="col">Formato</th>
                         <th scope="col">Idioma</th>
                         <th scope="col">Precio</th>
@@ -52,6 +53,7 @@
                     <tr th:each="book:${books}">
                         <td th:text="${book.name}"></td>
                         <td th:text="${book.autor}"></td>
+                        <td th:text="${book.editorial}"></td>
                         <td th:text="${book.genero}"></td>
                         <td th:text="${book.formato}"></td>
                         <td th:text="${book.idioma}"></td>
