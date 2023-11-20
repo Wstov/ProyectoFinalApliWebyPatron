@@ -50,6 +50,7 @@ public class ProductController {
         return "admin/products/show";
     }
     
+    
 //    Metodo para la accion del boton de editar, haga una peticion y muestre el objeto para poder editarlo
     @GetMapping("/edit/{id}") //paso de parametros, /{parametro}= para pasar mas parametros
     public String editProduct(@PathVariable Integer id, Model model){
@@ -57,8 +58,6 @@ public class ProductController {
         log.info("Product obtenido: {}", product);
         model.addAttribute("book", product); // con model.addAttribute se pasa el model a la vista.
         
-        return "admin/products/edit";
-        
-        
+        return "admin/products/edit";  
     }
 }

@@ -40,16 +40,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             </ul>
                         </div>
                         <div class="ms-lg-auto">
-                            <!--<a class="btn btn-danger" th:href="@{/home}">Salir</a></div>-->
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Admin
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" th:href="@{/admin/products/create}">Agregar Libro</a></li>
-                                    <li><a class="dropdown-item" th:href="@{/admin/products/show}">Ver Productos</a></li>
-                                    <li><a class="dropdown-item" th:href="@{/home}">Salir</a></li>
-                                </ul>
+<!--                                                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                    Admin
+                                                                </button>
+                                                                <ul class="dropdown-menu">
+                                                                    <li><a class="dropdown-item" th:href="@{/admin/products/create}">Agregar Libro</a></li>
+                                                                    <li><a class="dropdown-item" th:href="@{/admin/products/show}">Ver Productos</a></li>
+                                                                    <li><a class="dropdown-item" th:href="@{/home}">Salir</a></li>
+                                                                </ul>
+                                -->
+                                
+
+                                            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Home
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-dark">
+                                                <li><a class="dropdown-item" th:href="@{/admin}">Incio</a></li>
+                                                <li><a class="dropdown-item" th:href="@{/admin/products/create}">Agregar Libro</a></li>
+                                                <li><a class="dropdown-item" th:href="@{/admin/products/show}">Ver Productos</a></li>
+                                                <li><a class="dropdown-item" th:href="@{/home}">Salir</a></li>
+                                            </ul>
+                            
                             </div>
                         </div>
                     </div> 
