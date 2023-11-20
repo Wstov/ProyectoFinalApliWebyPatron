@@ -17,6 +17,7 @@ public class Product {
     private String code;
     private String name;
     private String autor;
+    private String editorial;
     private String genero;
     private String formato;
     private Integer publicacion;

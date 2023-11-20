@@ -47,6 +47,13 @@
                                                                autocomplete="off" hidden=""/>-->
                             <input name="autor" type="text" class="form-control" id="autor" placeholder="Ingrese el autor del libro" th:value="${book.autor}"/>
                         </div>
+                        
+                        <div class="form-group mb-4">
+                            <label for="editorial">Editorial:</label>
+                            <!--                            <input name="autor" type="text" class="form-control" placeholder="Ingrese el autor del libro" value=""
+                                                               autocomplete="off" hidden=""/>-->
+                            <input name="editorial" type="text" class="form-control" id="editorial" placeholder="Ingrese el autor del libro" th:value="${book.editorial}"/>
+                        </div>
 
                         <!--                        <div class="form-group mb-4">
                                                     <label for="genero">Género:</label>
@@ -61,6 +68,7 @@
                             <div class="input-group mb-3">
                                 <select class="form-select" id="genero" name="genero">
                                     <option value="Ficción" th:selected="${book.genero == 'Ficción'}">Ficción</option>
+                                    <option value="Fantasía" th:selected="${book.genero == 'Fantasía'}">Fantasía</option>
                                     <option value="Infantil" th:selected="${book.genero == 'Infantil'}">Infantil</option>
                                     <option value="Filosofía" th:selected="${book.genero == 'Filosofía'}">Filosofía</option>
                                     <option value="Salud" th:selected="${book.genero == 'Salud'}">Salud</option>

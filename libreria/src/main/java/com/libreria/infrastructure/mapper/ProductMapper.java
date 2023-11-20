@@ -17,6 +17,7 @@ public interface ProductMapper {
             @Mapping(source = "id", target = "id"),
             @Mapping(source = "name", target = "name"),
             @Mapping(source = "autor", target = "autor"),
+            @Mapping(source = "editorial", target = "editorial"),
             @Mapping(source = "genero", target = "genero"),
             @Mapping(source = "formato", target = "formato"),
             @Mapping(source = "publicacion", target = "publicacion"),

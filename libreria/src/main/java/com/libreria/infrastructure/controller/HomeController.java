@@ -13,5 +13,12 @@ public class HomeController {
     public String home(){
         return "index";
     }
+    
+    
+//    Route de NOSOTROS
+    @GetMapping
+    public String nosotros(){
+        return "nosotros/nosotros";
+    }
 
 }
