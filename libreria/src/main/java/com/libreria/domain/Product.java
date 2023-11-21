@@ -25,6 +25,7 @@ public class Product {
     private String description;
     private String image;
     private BigDecimal price;
+    private Boolean highlight;
 
     private LocalDateTime dateCreated;
     private LocalDateTime dateUpdated;

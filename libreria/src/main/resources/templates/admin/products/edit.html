@@ -9,7 +9,7 @@
 
     <body>
         <div th:insert="~{admin/template_admin.html::header}"></div>
-        
+
         <section class="bg-light">
             <div class="container pb-5">
                 <div class="p-5 lc-block">
@@ -47,7 +47,7 @@
                                                                autocomplete="off" hidden=""/>-->
                             <input name="autor" type="text" class="form-control" id="autor" placeholder="Ingrese el autor del libro" th:value="${book.autor}"/>
                         </div>
-                        
+
                         <div class="form-group mb-4">
                             <label for="editorial">Editorial:</label>
                             <!--                            <input name="autor" type="text" class="form-control" placeholder="Ingrese el autor del libro" value=""
@@ -123,13 +123,25 @@
                             <input name="price" type="number" class="form-control" id="price" placeholder="Ingrese un precio para el libro" th:value="${book.price}"/>
                         </div>
 
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" for="img">Imagen:</label>
-                            <div class="col-sm-10">
-                                <input type="file" class="form-control-file" id="img" name="img"/>
+                        <div class="row d-flex justify-content-between mt-4">
+                            <!-- Columna para el input de imagen -->
+                            <div class="col-sm-auto">
+                                <div class="form-group">
+                                    <label class="control-label" for="img">Imagen:</label>
+                                    <input type="file" class="form-control-file" id="img" name="img"/>
+                                </div>
+                            </div>
+
+                            <!-- Columna para el checkbox -->
+                            <div class="col-sm-auto"> <!-- Cambiado a col-sm-auto para permitir que el ancho sea automático -->
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input mr-3" type="checkbox" role="switch" id="highlight" name="highlight" th:checked="${book.highlight}"/>
+                                    <input type="hidden" name="highlight" value="false" />
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Destacar Producto</label>
+                                </div>
                             </div>
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary btn-lg mt-5" style="width: 100%;">Guardar</button>
                     </form>
                 </div>

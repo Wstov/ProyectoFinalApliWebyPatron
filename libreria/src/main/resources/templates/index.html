@@ -336,7 +336,7 @@
                                     <h2 class="display-1 fw-bold">Novedades Destacadas</h2>
                                 </div>
                             </div>
-                            <div class="lc-block mb-5">
+                            <div class="lc-block">
                                 <div >
                                     <p class="lead">Semana tras semana, las novedades que te 
                                         proponemos para que sigas disfrutando del placer de la lectura</p>
@@ -345,113 +345,25 @@
                         </div>
                     </div>
                 </section>
+                
+                <!--CARDS DE DESTACADOS-->
                 <section class="mx-auto p-2" style="max-width: 1200px;">
-                    <div class="row row-cols-1 row-cols-md-3 g-4">
-                        <div class="col">
-                            <div class="card h-100">
-
-                                <img src="../img/2030.jpg" class="card-img-top" alt="imagen"/>
-                                <div class="card-body">
-                                    <h5 class="card-title">2030</h5>
-                                    <p class="card-text">«El año 2030 todavía no existe. 2030 sólo es, aquí y ahora, 
-                                        un libro con dieciséis cuentos, de ocho hombres y ocho mujeres, 
-                                        que incluye diecisiete visiones, diecisiete miradas, tantas como los objetivos de Naciones Unidas.</p>
+                    
+                    <div class="row row-cols-1 row-cols-md-4 g-4">
+                        <div class="col"  th:each="book : ${books}" th:if="${book.highlight}">
+                            <div class="card h-100 shadow-lg">
+                                <img th:src="@{/images/{img} (img = ${book.image})}" class="card-img-top" alt="imagen"/>
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    <h5 class="card-title" th:text="${book.name}"></h5>
+                                    <p class="card-text" th:text="'₡ ' + ${#numbers.formatDecimal(book.price, 0, 'COMMA', 2, 'POINT')}"></p>
+                                    <form th:action="@{/agregar-al-carrito}" method="post">
+                                        <input type="hidden" name="productId" th:value="${book.id}" />
+                                        <button type="submit" class="btn btn-dark">Agregar al Carrito</button>
+                                    </form>
                                 </div>
                             </div>
 
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="../img/Atando Cabos.jpg" class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">Atando Cabos</h5>
-                                    <p class="card-text">A Garnet Stone le encanta trabajar allí tanto como leer libros. 
-                                        Trabaja duro para evitar que la gata entrometida de la tienda se meta en problemas 
-                                        mientras limpia el piso de ventas. Pero cuando la dueña de la librería, Teresa, fallece inesperadamente, 
-                                        Garnet se entera de que le heredó todo a su sobrina, Jane.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="../img/FalsasEsperanzas.jpg" class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">Falsas Esperanzas</h5>
-                                    <p class="card-text">Una noche de diciembre, un cadáver yace en el suelo de la habitación 622 
-                                        del Palace de Verbier, un hotel de lujo en los Alpes suizos. La investigación policial no 
-                                        llegará nunca a término y el paso del tiempo hará que muchos olviden lo sucedido.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="../img/Cuentos de Navidad.jpg" class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">Cuentos de Navidad</h5>
-                                    <p class="card-text">La historia del mayor éxito musical de Gayla Peevey, 
-                                        una cantante infantil de los años cincuenta.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="../img/Mujeres Que Dejaron Huella.jpg" class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">Mujeres Que Dejaron Huella</h5>
-                                    <p class="card-text">La Fundación Global concreta proyectos. Lo hace gracias al esfuerzo de sus colaboradores
-                                        y de quienes ayudan con sus aportes. Fue así como, hace tres años, 
-                                        fue posible crear GPS Mujer, un espacio de investigación y difusión cuyo propósito es visibilizar los ejes 
-                                        de la problemática de las mujeres. Aquí presentamos a "Mujeres que dejaron Huella", Florentina, María Luisa y Carmen.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="../img/Diario Inacabado De Un Poeta.jpg" class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">Diario Inacabado De Un Poeta</h5>
-                                    <p class="card-text">Diario apócrifo del gran poeta y dramaturgo granadino, Federico García Lorca. 
-                                        El lector se acercará a gran cantidad de datos fidedignos sobre 
-                                        los últimos años de la existencia del poeta</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="../img/Crimen Y Castigo.jpg" class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">Crimen Y Castigo</h5>
-                                    <p class="card-text">Raskolnikov se ve obligado a asesinar también a la hermana de la usurera Aliona, Lizaveta,
-                                        ya que lo sorprende en el lugar del crimen. Pronto la policía se pone a investigar el caso. 
-                                        El protagonista como persona que usó los servicios de la usurera, es interrogado por el comisario, 
-                                        que sospecha de él como uno de los autores e intenta sorprenderlo con preguntas.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="../img/Sherlock Holmes-Coleccion Completa.jpg" class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">Sherlock Holmes-Coleccion Completa</h5>
-                                    <p class="card-text">En Sherlock Holmes, Sir Arthur Conan Doyle creó uno de los personajes literarios 
-                                        más conocidos y más realizados en el mundo. Desde la muerte de Doyle, ha habido un montón de escritores que 
-                                        imitan sus historias. Sin embargo, con raras excepciones la mayoría no ha estado a la altura de los altos 
-                                        estándares establecidos por Doyle en sus mejores sus cuentos de Sherlock Holmes.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="../img/Marco Aurelio-Meditaciones.jpg" class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">Marco Aurelio-Meditaciones</h5>
-                                    <p class="card-text">obra literaria constituida por una serie de reflexiones de este filósofo, aparentemente 
-                                        fuera del tiempo y sin cronología. Fue originalmente redactada en griego entre los años 170 y 180. 
-                                        La obra, en doce tomos, es única en su género, y parece recorrer los últimos años de la vida interior de 
-                                        este emperador.</p>
-                                </div>
-                            </div>
-                        </div>
+                        </div>  
                     </div>
 
                 </section>

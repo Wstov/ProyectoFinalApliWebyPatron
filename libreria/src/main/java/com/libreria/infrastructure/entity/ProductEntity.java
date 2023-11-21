@@ -28,6 +28,7 @@ public class ProductEntity {
     private String description;
     private String image;
     private BigDecimal price;
+    private Boolean highlight;
 
     private LocalDateTime dateCreated;
     private LocalDateTime dateUpdated;

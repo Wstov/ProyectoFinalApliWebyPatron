@@ -1,13 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.libreria.domain;
+
+import java.time.LocalDateTime;
+import lombok.Data;
+import lombok.ToString;
 
 /**
  *
  * @author Wstov
  */
+@Data
+@ToString
 public class Stock {
+    private Integer id;
+    private LocalDateTime dateCreated;
+    private Integer unitIn;
+    private Integer unitOut;
+    private String description;
+    private Integer balance;
+    private Product product;
     
 }

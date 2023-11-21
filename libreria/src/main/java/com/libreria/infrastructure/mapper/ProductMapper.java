@@ -26,7 +26,8 @@ public interface ProductMapper {
             @Mapping(source = "price", target = "price"),
             @Mapping(source = "dateCreated", target = "dateCreated"),
             @Mapping(source = "dateUpdated", target = "dateUpdated"),
-            @Mapping(source = "userEntity", target = "user")
+            @Mapping(source = "userEntity", target = "user"),
+            @Mapping(source = "highlight", target = "highlight")
 
     })
     Product toProduct(ProductEntity productEntity);
