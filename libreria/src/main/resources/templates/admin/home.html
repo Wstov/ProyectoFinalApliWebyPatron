@@ -30,7 +30,7 @@
 
                     <div class="col-lg-3 col-md-6 mb-4" th:each="book:${books}">
                         <div class="card h-100">
-                            <img class="card-img-top" src="http://placehold.it/500x325" alt="portada de libro"/>
+                            <img class="card-img-top" th:src="@{/images/{img} (img = ${book.image})}" alt="portada de libro"/>
                             <div class="card-body">
                                 <p class="card-text" th:text="${book.name}">Nombre del producto.</p>
                             </div>
@@ -45,8 +45,6 @@
 
         </div>
         <!-- /.container -->
-
         <div th:insert="layout/plantilla.html::footer"></div>
-
     </body>
 </html>

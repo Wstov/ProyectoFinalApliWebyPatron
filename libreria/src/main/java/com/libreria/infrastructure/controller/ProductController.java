@@ -5,6 +5,7 @@ package com.libreria.infrastructure.controller;
 import com.libreria.application.service.ProductService;
 import com.libreria.domain.Product;
 import com.libreria.domain.User;
+import java.io.IOException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/admin/products")
@@ -32,9 +35,9 @@ public class ProductController {
     
 //    Guardar los productos en la base de datos
     @PostMapping("/save-product")
-    public String saveProduct(Product product ){
+    public String saveProduct(Product product,@RequestParam("img") MultipartFile multipartFile) throws IOException{
         //log.info("Nombre de producto: {}", product);
-        productService.saveProduct(product);
+        productService.saveProduct(product, multipartFile);
 //        return "admin/products/create";
         return "redirect:/admin/products/show";
     }
