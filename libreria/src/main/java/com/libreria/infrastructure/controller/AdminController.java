@@ -27,6 +27,6 @@ public class AdminController {
         Iterable<Product> products = productService.getProductsByUser(user);
         model.addAttribute("books", products);
         
-    return "admin/home";
+    return "admin/admin";
     }
 }

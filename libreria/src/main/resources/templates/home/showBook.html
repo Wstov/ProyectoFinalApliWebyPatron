@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      >
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Storybound Books</title>
+    </head>
+    <body>
+        <div th:insert="~{layout/plantilla.html::header}"></div>
+        <main>
+            <section th:fragment="hero">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-6 col-xl-7 mb-lg-0 py-5 py-md-6">
+                            <div class="lc-block mb-3 mb-md-5 lh-1">
+                                <div >
+                                    <h1 class="text-primary fw-bolder display-3">Storybound Books</h1>
+                                </div>
+                            </div>
+                            <div class="lc-block">
+                                <a class="btn btn-lg btn-dark" href="#" role="button">Mas Información</a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-xl-5">
+                            <div class="lc-block px-md-4 px-lg-5 lh-lg">
+                                <div >
+                                    <p class="rfs-7"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et metus
+                                        id
+                                        ligula malesuada placerat sit amet quis enim.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="container mt-5">
+                    <div class="row">
+                        <input type="hidden" name="id" th:value="${book.id}"/>
+                        
+                                                <!-- Sección de la portada del libro (a la derecha) -->
+                        <div class="col-md-6">
+                            <!-- Asumo que tienes un atributo 'imagen' en tu modelo -->
+                            <img th:src="@{/images/{img} (img = ${book.image})}" class="img-fluid" alt="Portada del libro" style="max-width: 50%; height: auto;"/>
+                        </div>
+                        
+                        <!-- Sección de la información del libro (a la izquierda) -->
+                        <div class="col-md-6">
+                            <h2  class="display-4 mb-4"></h2>
+                            <p ><strong>Autor:</strong> <span th:text="${book.autor}"></span></p>
+                            <p><strong>Editorial:</strong><span th:text="${book.editorial}"></span></p>
+                            <p><strong>Fecha de Publicación:</strong> <span th:text="${book.publicacion}"></span></p>
+                            <p><strong>Formato:</strong> <span th:text="${book.formato}"></span></p>
+                            <p><strong>Idioma:</strong> <span th:text="${book.idioma}"></span></p>
+                            <p><strong>Género:</strong> <span th:text="${book.genero}"></span></p>
+                            <p><strong>Precio:</strong> <span th:text="'₡ ' + ${#numbers.formatDecimal(book.price, 0, 'COMMA', 2, 'POINT')}"></span></p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <div th:insert="~{layout/plantilla.html::footer}"></div>
+    </body>
+
+</html>

@@ -27,7 +27,6 @@ public class ProductController {
         this.productService = productService;
     }
     
-    
     @GetMapping("/create")
     public String create(){
         return "admin/products/create";

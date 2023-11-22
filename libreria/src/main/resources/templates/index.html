@@ -348,18 +348,21 @@
                 
                 <!--CARDS DE DESTACADOS-->
                 <section class="mx-auto p-2" style="max-width: 1200px;">
-                    
+
                     <div class="row row-cols-1 row-cols-md-4 g-4">
                         <div class="col"  th:each="book : ${books}" th:if="${book.highlight}">
                             <div class="card h-100 shadow-lg">
-                                <img th:src="@{/images/{img} (img = ${book.image})}" class="card-img-top" alt="imagen"/>
+                                <a th:href="@{/home/book/{id} (id=${book.id})}">
+                                    <img th:src="@{/images/{img} (img = ${book.image})}" class="card-img-top" alt="imagen"/>
+                                </a>
+
                                 <div class="card-body d-flex flex-column align-items-center">
                                     <h5 class="card-title" th:text="${book.name}"></h5>
                                     <p class="card-text" th:text="'₡ ' + ${#numbers.formatDecimal(book.price, 0, 'COMMA', 2, 'POINT')}"></p>
-                                    <form th:action="@{/agregar-al-carrito}" method="post">
+<!--                                    <form th:action="@{/agregar-al-carrito}" method="post">-->
                                         <input type="hidden" name="productId" th:value="${book.id}" />
                                         <button type="submit" class="btn btn-dark">Agregar al Carrito</button>
-                                    </form>
+                                    <!--</form>-->
                                 </div>
                             </div>
 
