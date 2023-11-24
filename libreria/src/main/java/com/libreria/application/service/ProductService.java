@@ -30,6 +30,7 @@ public class ProductService {
     public Product getProductById(Integer id){
         return productRepository.getProductById(id);
     }
+    
 
 //    GUARDAR Y ACTUALIZAR LA INFORMACION DE LOS LIBROS
     public Product saveProduct(Product product, MultipartFile multipartFile) throws IOException {

@@ -3,11 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org"
       >
-    <head th:replace="~{layout/plantilla :: head}">
+    <head th:insert="~{layout/plantilla :: head}">
         <title>Storybound Books</title>
     </head>
     <body>
-        <div th:insert="~{layout/plantilla.html::header}"></div>
+        <div class="" th:insert="~{layout/plantilla.html::header}"></div>
         <main th:fragment="home">
             <section th:fragment="hero">
                 <div class="container">
@@ -345,31 +345,43 @@
                         </div>
                     </div>
                 </section>
-                
+
                 <!--CARDS DE DESTACADOS-->
                 <section class="mx-auto p-2" style="max-width: 1200px;">
 
-                    <div class="row row-cols-1 row-cols-md-4 g-4">
-                        <div class="col"  th:each="book : ${books}" th:if="${book.highlight}">
-                            <div class="card h-100 shadow-lg">
-                                <a th:href="@{/home/book/{id} (id=${book.id})}">
-                                    <img th:src="@{/images/{img} (img = ${book.image})}" class="card-img-top" alt="imagen"/>
-                                </a>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" th:each="book : ${books}" th:if="${book.highlight}">
 
-                                <div class="card-body d-flex flex-column align-items-center">
-                                    <h5 class="card-title" th:text="${book.name}"></h5>
-                                    <p class="card-text" th:text="'₡ ' + ${#numbers.formatDecimal(book.price, 0, 'COMMA', 2, 'POINT')}"></p>
-<!--                                    <form th:action="@{/agregar-al-carrito}" method="post">-->
-                                        <input type="hidden" name="productId" th:value="${book.id}" />
-                                        <button type="submit" class="btn btn-dark">Agregar al Carrito</button>
-                                    <!--</form>-->
-                                </div>
+            <div class="card h-100 shadow-lg">
+                <a th:href="@{/home/book/{id} (id=${book.id})}">
+                    <img th:src="@{/images/{img} (img = ${book.image})}" class="card-img-top" alt="imagen"/>
+                </a>
+
+                <div class="card-body d-flex flex-column align-items-center">
+                    <h5 class="card-title" th:text="${#strings.length(book.name) > 20} ? ${#strings.substring(book.name, 0, 20) + '...'} : ${book.name}"></h5>
+
+                    <p class="card-text" th:text="'₡ ' + ${#numbers.formatDecimal(book.price, 0, 'COMMA', 2, 'POINT')}"></p>
+                    <form th:action="@{/agregar-al-carrito}" method="post">
+                        <input type="hidden" name="productId" th:value="${book.id}" />
+                        <a type="submit" class="button">
+                            <div class="button-wrapper">
+                                <div class="text">Agregar al Carrito</div>
+                                <span class="icon">
+                                    <svg viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
+                                    </svg>
+                                </span>
                             </div>
+                        </a>
+                    </form>
+                </div>
+            </div>
 
-                        </div>  
-                    </div>
+        </div>  
+    </div>
 
-                </section>
+</section>
+
                 <section>
                     <div class="container col-xxl-8 px-4 py-5">
                         <div class="row align-items-center g-5 py-5">
@@ -566,28 +578,3 @@
         <div th:insert="~{layout/plantilla.html::footer}"></div>
     </body>
 </html>
-
-
-
-<!--<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:th="http://www.thymeleaf.org"
-      >
-    <head th:replace="~{layout/plantilla :: head}">
-        <title>Storybound Books</title>
-    </head>
-    <body>
-        <header th:replace="~{layout/plantilla :: header}"/>
-
-
-        <main th:replace="~{home/home :: home}"/>
-
-
-        <section th:replace="~{nosotros/nosotros :: nosotros}"/>
-
-
-        footer 
-        <footer th:replace="~{layout/plantilla :: footer}"/>
-    </body>
-</html>-->

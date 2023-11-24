@@ -60,7 +60,6 @@
                             <td th:text="${book.idioma}"></td>
                             <td th:text="'₡ ' + ${#numbers.formatDecimal(book.price, 0, 'COMMA', 2, 'POINT')}" ></td>
                             <td th:text="${book.highlight}"></td>
-                            <!--<td th:text="₡ ${book.price}"></td>-->
 
                             <td><a class="btn btn-warning" th:href="@{/admin/products/edit/{id} (id = ${book.id})}">Editar</a></td>
                             <td><a class="btn btn-danger" th:href="@{/admin/products/delete/{id} (id=${book.id})}">Eliminar</a></td>
@@ -74,10 +73,6 @@
 
         <!-- Footer -->
         <div th:insert="~{layout/plantilla.html::footer}"></div>
-
-        <!-- Bootstrap core JavaScript -->
-        <!--        <script th:src="@{vendor/jquery/jquery.min.js}"></script>
-                <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>-->
 
     </body>
 

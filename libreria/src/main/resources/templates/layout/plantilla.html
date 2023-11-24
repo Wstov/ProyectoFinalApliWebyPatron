@@ -11,6 +11,7 @@
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 
+        <link th:href="@{/css/style.css}" rel="stylesheet"/>
 
         <!--CODIO PARA LOS CARDS-->
         <link rel="preload" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" as="style"
@@ -52,7 +53,7 @@
 
         <!--INICIO DEL HEADER-->
         <header th:fragment="header">
-            <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark" >
                 <div class="container">
                     <a class="navbar-brand" th:href="@{/home}">
                         <img src="/img/logobook.png" width="97" height="48" class="align-middle me-1"
@@ -114,6 +115,11 @@
             </nav>
         </header>
         <!--FIN DEL HEADER-->
+
+        <!--FRAGMENTS-->
+
+
+        <!--END FRAGMENTS-->
 
         <!--INICIO DEL FOOTER-->
         <footer th:fragment="footer">

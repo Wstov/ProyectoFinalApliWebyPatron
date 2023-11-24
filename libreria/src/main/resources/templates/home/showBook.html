@@ -18,9 +18,7 @@
                                     <h1 class="text-primary fw-bolder display-3">Storybound Books</h1>
                                 </div>
                             </div>
-                            <div class="lc-block">
-                                <a class="btn btn-lg btn-dark" href="#" role="button">Mas Información</a>
-                            </div>
+
                         </div>
                         <div class="col-12 col-md-6 col-xl-5">
                             <div class="lc-block px-md-4 px-lg-5 lh-lg">
@@ -36,28 +34,73 @@
             </section>
 
             <section>
-                <div class="container mt-5">
+                <div class="container">
                     <div class="row">
-                        <input type="hidden" name="id" th:value="${book.id}"/>
-                        
-                                                <!-- Sección de la portada del libro (a la derecha) -->
-                        <div class="col-md-6">
+                        <!-- Sección de la portada del libro (a la izquierda) -->
+                        <div class="col-md-4 mb-4">
                             <!-- Asumo que tienes un atributo 'imagen' en tu modelo -->
-                            <img th:src="@{/images/{img} (img = ${book.image})}" class="img-fluid" alt="Portada del libro" style="max-width: 50%; height: auto;"/>
+                            <img th:src="@{/images/{img} (img = ${showBook.image})}" class="img-fluid" alt="Portada del libro" style="width: 100%; height: auto;"/>
                         </div>
-                        
-                        <!-- Sección de la información del libro (a la izquierda) -->
-                        <div class="col-md-6">
-                            <h2  class="display-4 mb-4"></h2>
-                            <p ><strong>Autor:</strong> <span th:text="${book.autor}"></span></p>
-                            <p><strong>Editorial:</strong><span th:text="${book.editorial}"></span></p>
-                            <p><strong>Fecha de Publicación:</strong> <span th:text="${book.publicacion}"></span></p>
-                            <p><strong>Formato:</strong> <span th:text="${book.formato}"></span></p>
-                            <p><strong>Idioma:</strong> <span th:text="${book.idioma}"></span></p>
-                            <p><strong>Género:</strong> <span th:text="${book.genero}"></span></p>
-                            <p><strong>Precio:</strong> <span th:text="'₡ ' + ${#numbers.formatDecimal(book.price, 0, 'COMMA', 2, 'POINT')}"></span></p>
+                        <!-- Sección de la información del libro (a la derecha) -->
+                        <div class="col-md-5">
+                            <h2 class="display-4 mb-4"></h2>
+                            <p class="fw-bold display-5" th:text="${showBook.name}">Titulo del libro</p>
+                            <p><strong>Autor:</strong> <span th:text="${showBook.autor}"></span></p>
+                            <p><strong>Editorial:</strong> <span th:text="${showBook.editorial}"></span></p>
+                            <p><strong>Fecha de Publicación:</strong> <span th:text="${showBook.publicacion}"></span></p>
+                            <p><strong>Formato:</strong> <span th:text="${showBook.formato}"></span></p>
+                            <p><strong>Idioma:</strong> <span th:text="${showBook.idioma}"></span></p>
+                            <p><strong>Género:</strong> <span th:text="${showBook.genero}"></span></p>
+                            <p><strong>Precio:</strong> <span th:text="'₡ ' + ${#numbers.formatDecimal(showBook.price, 0, 'COMMA', 2, 'POINT')}"></span></p>
+                            <a type="submit" class="button">
+                                <div class="button-wrapper">
+                                    <div class="text">Agregar al Carrito</div>
+                                    <span class="icon">
+                                        <svg viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </a>
                         </div>
-
+                        <!-- Nuevo div a la derecha -->
+                        <div class="col-md-3">
+                            <h4>Recomendaciones Especiales</h4>
+                            <p>Libros que también te pueden interesar:</p>
+                            <hr/>
+           
+                            <div  class="scroll-container" style="height: 350px; overflow-y: auto;">
+                                <div th:each="gender : ${booksGenders}" th:if="${gender.genero eq showBook.genero and gender.name ne showBook.name}">
+                                    <div class="d-flex align-items-center" >
+                                    <!-- División para la imagen -->
+                                    <div class="p-2">
+                                        <a th:href="@{/home/book/{id} (id=${gender.id})}">
+                                            <img th:src="@{/images/{img} (img = ${gender.image})}" alt="portada del libro" class="img-thumbnail" style="width: 70px; height: auto;"/>
+                                        </a>
+                                    </div>
+                                    <!-- División para el texto -->
+                                    <div class="p-2">
+                                        <p class="mb-1 text-secondary" th:text="${#strings.length(gender.name) > 20} ? ${#strings.substring(gender.name, 0, 20) + '...'} : ${gender.name}"></p>
+                                        <p class="mb-1 text-secondary" th:text="'₡ ' + ${#numbers.formatDecimal(gender.price, 0, 'COMMA', 2, 'POINT')}"></p>
+                                    </div>
+                                </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Nueva sección debajo -->
+                <div class="container">
+                    <div class="lc-block mb-4">
+                        <div>
+                            <h1 class="fw-bold display-2 about-title">Sobre el Libro</h1>
+                        </div>
+                    </div><!-- /lc-block -->
+                    <div class="lc-block mb-5">
+                        <div>
+                            <p class="fs-4" th:text="${showBook.description}"></p>
+                        </div>
                     </div>
                 </div>
             </section>
