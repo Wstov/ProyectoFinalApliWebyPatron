@@ -15,7 +15,7 @@
                         <div class="col-12 col-md-6 col-xl-7 mb-lg-0 py-5 py-md-6">
                             <div class="lc-block mb-3 mb-md-5 lh-1">
                                 <div >
-                                    <h1 class="text-primary fw-bolder display-3">Storybound Books</h1>
+                                    <h1 class="text-primary fw-bolder display-5">Storybound Books</h1>
                                 </div>
                             </div>
 
@@ -68,24 +68,27 @@
                             <h4>Recomendaciones Especiales</h4>
                             <p>Libros que también te pueden interesar:</p>
                             <hr/>
-           
+
                             <div  class="scroll-container" style="height: 350px; overflow-y: auto;">
-                                <div th:each="gender : ${booksGenders}" th:if="${gender.genero eq showBook.genero and gender.name ne showBook.name}">
-                                    <div class="d-flex align-items-center" >
-                                    <!-- División para la imagen -->
-                                    <div class="p-2">
-                                        <a th:href="@{/home/book/{id} (id=${gender.id})}">
-                                            <img th:src="@{/images/{img} (img = ${gender.image})}" alt="portada del libro" class="img-thumbnail" style="width: 70px; height: auto;"/>
-                                        </a>
-                                    </div>
-                                    <!-- División para el texto -->
-                                    <div class="p-2">
-                                        <p class="mb-1 text-secondary" th:text="${#strings.length(gender.name) > 20} ? ${#strings.substring(gender.name, 0, 20) + '...'} : ${gender.name}"></p>
-                                        <p class="mb-1 text-secondary" th:text="'₡ ' + ${#numbers.formatDecimal(gender.price, 0, 'COMMA', 2, 'POINT')}"></p>
-                                    </div>
+
+                                <div class="zoom" th:each="gender : ${booksGenders}" th:if="${gender.genero eq showBook.genero and gender.name ne showBook.name}">
+                                    <a th:href="@{/home/book/{id} (id=${gender.id})}">
+                                        <div class="d-flex align-items-center" >
+                                            <!-- División para la imagen -->
+                                            <div class="p-2">
+
+                                                <img th:src="@{/images/{img} (img = ${gender.image})}" alt="portada del libro" class="img-thumbnail" style="width: 70px; height: auto;"/>
+
+                                            </div>
+                                            <!-- División para el texto -->
+                                            <div class="p-2">
+                                                <p class="mb-1 text-secondary" th:text="${#strings.length(gender.name) > 20} ? ${#strings.substring(gender.name, 0, 20) + '...'} : ${gender.name}"></p>
+                                                <p class="mb-1 text-secondary" th:text="'₡ ' + ${#numbers.formatDecimal(gender.price, 0, 'COMMA', 2, 'POINT')}"></p>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                                </div>
-                                
+
                             </div>
                         </div>
                     </div>

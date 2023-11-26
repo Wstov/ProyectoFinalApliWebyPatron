@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      >
+    <head th:insert="~{layout/plantilla :: head}">
+        <title>Storybound Books</title>
+    </head>
+    <body>
+        <div class="" th:insert="~{layout/plantilla.html::header}"></div>
+        <main>
+            <div class="container-fluid d-flex align-items-center justify-content-center bg-light pt-5" style="min-height: 100vh;">
+                <div class="card shadow p-5 mb-5 bg-white rounded" style="width: 80%; border: none;">
+                    <h3 class="card-title text-center mb-5 font-weight-bold fs-1">Envíanos un mensaje llenando los siguientes datos:</h3>
+
+                    <form class="row" method="post">
+
+                        <div class="col-md-4 d-flex align-items-start justify-content-center mb-4">
+                            <img th:src="@{/ruta/de/tu/imagenFormulario}" alt="Descripción de la imagen" class="img-fluid" style="max-width: 90%; max-height: 90%;" />
+                        </div>
+                        <div class="col-md-8">
+
+                            <div class="form-group">
+                                <label for="inputNombre" class="font-weight-bold">Nombre</label>
+                                <input type="text" class="form-control mb-3" id="inputNombre" placeholder="Nombre" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputApellido" class="font-weight-bold">Apellido</label>
+                                <input type="text" class="form-control mb-3" id="inputApellido" placeholder="Apellido" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputEdad" class="font-weight-bold">Edad</label>
+                                <input type="number" class="form-control mb-3" id="inputEdad" placeholder="Edad" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputTelefono" class="font-weight-bold">Teléfono</label>
+                                <input type="tel" class="form-control mb-3" id="inputTelefono" placeholder="Teléfono" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputEmail" class="font-weight-bold">E-mail</label>
+                                <input type="email" class="form-control mb-3" id="inputEmail" placeholder="E-mail" />
+                            </div>
+
+                            <div class="form-group mt-2">
+                                <label for="inputMensaje" class="font-weight-bold">Mensaje</label>
+                                <textarea class="form-control" id="inputMensaje" rows="5" placeholder="Escribe tu mensaje aquí..." ></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-dark w-100 mt-3" >Enviar</button>
+
+                            <div class="toast-container position-fixed bottom-0 end-0 p-5">
+                                <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="width: 500px;">
+                                    <div class="toast-header">
+                                        <strong class="me-auto fs-5">Los datos del formulario se enviaron correctamente.</strong>
+                                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                    </div>
+                                    <div class="toast-body fs-5">
+                                        Game Store - Play Everything
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <div th:insert="~{layout/plantilla.html::footer}"></div>
+    </body>
+</html>

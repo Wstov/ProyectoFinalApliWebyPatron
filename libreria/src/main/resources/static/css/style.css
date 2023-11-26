@@ -7,10 +7,11 @@
 }
 
 
-.card:hover {
+.zoom:hover {
     transform: scale(1.03); /* Ajusta el valor según sea necesario para el efecto deseado */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombreado al pasar el cursor */
     transition: transform 0.3s, box-shadow 0.3s; /* Agrega una transición para que sea suave */
+    cursor: pointer;
 }
 
 /*BUY BUTTON*/
@@ -105,3 +106,33 @@
 .about-title {
     font-size: 50px; /* Ajusta el tamaño de la fuente según tus necesidades */
 }
+
+/*CARD DE OFERTAS*/
+.card_offer {
+  width: 310px;
+  background: white;
+  padding: .4em;
+  border-radius: 6px;
+}
+
+.card-image {
+  width: 310px;
+  height: 520px;
+  border-radius: 6px 6px 0 0;
+  
+}
+
+.card-image img{
+    object-fit: cover;
+}
+
+.card-image:hover {
+  transform: scale(0.98);
+}
+
+
+.category:hover {
+  cursor: pointer;
+}
+
+/*END CARDS DE OFERTAS*/

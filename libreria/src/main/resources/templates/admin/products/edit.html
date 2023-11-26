@@ -140,6 +140,14 @@
                                     <label class="form-check-label" for="flexSwitchCheckDefault">Destacar Producto</label>
                                 </div>
                             </div>
+                            
+                            <div class="col-sm-auto"> <!-- Cambiado a col-sm-auto para permitir que el ancho sea automático -->
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input mr-3" type="checkbox" role="switch" id="offer" name="offer" th:checked="${book.offer}"/>
+                                    <input type="hidden" name="offer" value="false" />
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Producto en Oferta</label>
+                                </div>
+                            </div>
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-lg mt-5" style="width: 100%;">Guardar</button>

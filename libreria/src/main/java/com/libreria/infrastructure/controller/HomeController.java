@@ -30,10 +30,24 @@ public class HomeController {
     }
 
 //    Route de NOSOTROS
-    @GetMapping("/nosotros")
-    public String nosotros() {
-        return "/home/nosotros";
+    @GetMapping("/aboutus")
+    public String aboutus() {
+        return "/home/aboutus";
     }
+    
+    //    Route de SERVICIOS
+    @GetMapping("/services")
+    public String services() {
+        return "/home/services";
+    }
+    
+    //    Route de NOSOTROS
+    @GetMapping("/contact")
+    public String contact() {
+        return "/home/contact";
+    }
+    
+  
 
     //    Route de mostrar libro
     @GetMapping("/book/{id}")

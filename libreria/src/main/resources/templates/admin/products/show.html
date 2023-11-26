@@ -13,7 +13,7 @@
         <div th:insert="~{admin/template_admin.html::header}"></div>
 
         <!-- Page Content -->
-        <div class="container-fluid pb-5" style="max-width: 1600px;">
+        <div class="container-fluid pb-5" style="max-width: 1700px;">
             <div class="p-5 lc-block">
 
                 <div class="lc-block">
@@ -45,6 +45,7 @@
                             <th scope="col">Idioma</th>
                             <th scope="col">Precio</th>
                             <th scope="col">Destacado</th>
+                            <th scope="col">En Oferta</th>
                             <th scope="col">Editar</th>
                             <th scope="col">Eliminar</th>
                             <th scope="col">Inventario</th>
@@ -59,7 +60,15 @@
                             <td th:text="${book.formato}"></td>
                             <td th:text="${book.idioma}"></td>
                             <td th:text="'₡ ' + ${#numbers.formatDecimal(book.price, 0, 'COMMA', 2, 'POINT')}" ></td>
-                            <td th:text="${book.highlight}"></td>
+                            <!--<td th:text="${book.highlight}"></td>-->
+                            <td>
+                                <span th:if="${book.highlight}">Sí</span>
+                                <span th:unless="${book.highlight}">No</span>
+                            </td>
+                            <td>
+                                <span th:if="${book.offer}">Sí</span>
+                                <span th:unless="${book.offer}">No</span>
+                            </td>
 
                             <td><a class="btn btn-warning" th:href="@{/admin/products/edit/{id} (id = ${book.id})}">Editar</a></td>
                             <td><a class="btn btn-danger" th:href="@{/admin/products/delete/{id} (id=${book.id})}">Eliminar</a></td>

@@ -7,7 +7,7 @@
         <title>Storybound Books</title>
     </head>
     <body>
-        <div class="" th:insert="~{layout/plantilla.html::header}"></div>
+        <div th:insert="~{layout/plantilla.html::header}"></div>
         <main th:fragment="home">
             <section th:fragment="hero">
                 <div class="container">
@@ -19,7 +19,7 @@
                                 </div>
                             </div>
                             <div class="lc-block">
-                                <a class="btn btn-lg btn-dark" href="#" role="button">Mas Información</a>
+                                <a class="btn btn-lg btn-dark" th:href="@{/home/aboutus}" role="button">Mas Información</a>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 col-xl-5">
@@ -70,267 +70,116 @@
                 </div>
             </section>
             <!-- CARROUSEL -->
-            <section th:fragment="carrousel">
-                <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-                                aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-                                aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-                                aria-label="Slide 3"></button>
+            <section>
+                <div style="margin: 0 12% 0 12%;">
+                    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                                    aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
 
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="6000">
+                                <img src="../img/markus.jpg" class="d-block w-100" alt="..."/>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>First slide label</h5>
+                                    <p>Some representative placeholder content for the first slide.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item" data-bs-interval="3000">
+                                <img src="../img/chuttersnap.jpg" class="d-block w-100" alt="..."/>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Second slide label</h5>
+                                    <p>Some representative placeholder content for the second slide.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../img/oscar.jpg" class="d-block w-100" alt="..."/>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Third slide label</h5>
+                                    <p>Some representative placeholder content for the third slide.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                                data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                                data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active" data-bs-interval="6000">
-                            <img src="../img/markus.jpg" class="d-block w-100" alt="..."/>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p>Some representative placeholder content for the first slide.</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="3000">
-                            <img src="../img/chuttersnap.jpg" class="d-block w-100" alt="..."/>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Second slide label</h5>
-                                <p>Some representative placeholder content for the second slide.</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../img/oscar.jpg" class="d-block w-100" alt="..."/>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Third slide label</h5>
-                                <p>Some representative placeholder content for the third slide.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-                            data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-                            data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
+
             </section>
             <!--CARDS-->
             <section th:fragment="cards" style="padding-top: 70px; padding-bottom: 70px;">
                 <div class="lc-block mb-4">
                     <div >
-                        <h2 class="display-1 fw-bold text-center py-5">Novedades Destacadas</h2>
+                        <h2 class="display-1 fw-bold text-center py-5">Ofertas Destacadas</h2>
                     </div>
                 </div>
-                <div class="container py-6">
+                <div class="container">
                     <div class="swiper mySwiper-RANDOMID">
 
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide h-100">
-                                <div class="card shadow mx-auto">
-                                    <div class="card-body">
-                                        <div class="lc-block">
-                                            <img class="img-fluid"
-                                                 src="https://images.unsplash.com/photo-1660861378355-d194175e4905?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8Mnx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0MzUxOTV8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
-                                                 srcset="" sizes="" width="" height="" alt="Photo by Marla Gottschalk"
-                                                 loading="lazy"/>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="lc-block mb-3">
-                                                <div >
+                            <div class="swiper-slide"  th:each="book : ${books}" th:if="${book.offer}">
 
-                                                    <h2 class="h5">Card Title</h2>
+                                <div class="card_offer">
+                                    <div class="card-image">
+                                        <a th:href="@{/home/book/{id} (id=${book.id})}">
+                                            <img th:src="@{/images/{img} (img = ${book.image})}" class="card-img-top" alt="imagen"/>
+                                        </a>
+                                    </div>
 
-                                                    <p>Some quick example text to build on the card title and make up the
-                                                        bulk of the card's content..</p>
-                                                </div>
+                                    <div>
+                                        <div class="card-body d-flex flex-column align-items-center">
+                                            <h5 class="card-title" th:text="${#strings.length(book.name) > 20} ? ${#strings.substring(book.name, 0, 20) + '...'} : ${book.name}"></h5>
+
+                                            <p class="pt-3 ">Antes: <span class="card-text text-decoration-line-through " th:text="'₡ ' + ${#numbers.formatDecimal(book.price, 0, 'COMMA', 2, 'POINT')}"></span></p>
+                                            
+                                            <p class="card-text fs-4" th:if="${book.price != null}"> Ahora:
+                                                <span th:text="'₡ ' + ${#numbers.formatDecimal(book.price * 0.75, 0, 'COMMA', 2, 'POINT')}"></span>
+                                            </p>
+                                            <p th:if="${book.price == null}">Precio no disponible</p>
+
+                                            <form th:action="@{/agregar-al-carrito}" method="post">
+                                                <input type="hidden" name="productId" th:value="${book.id}" />
+                                                <a type="submit" class="button">
+                                                    <div class="button-wrapper">
+                                                        <div class="text">Agregar al Carrito</div>
+                                                        <span class="icon">
+                                                            <svg viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
+                                                    </svg>
+                                                </span>
                                             </div>
-                                            <div class="lc-block">
-                                                <a class="btn btn-primary" href="#" role="button">Button</a>
-                                            </div>
-
-                                        </div>
+                                        </a>
+                                    </form>
+                                </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide h-100">
-                                <div class="card shadow mx-auto">
-                                    <div class="card-body">
-                                        <div class="lc-block">
-                                            <img class="img-fluid"
-                                                 src="https://images.unsplash.com/photo-1617886903355-9354bb57b5d4?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8NHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
-                                                 srcset="https://images.unsplash.com/photo-1617886903355-9354bb57b5d4?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8NHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1617886903355-9354bb57b5d4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8NHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1617886903355-9354bb57b5d4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8NHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1617886903355-9354bb57b5d4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8NHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1617886903355-9354bb57b5d4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8NHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1024 1024w"
-                                                 sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
-                                                 alt="Photo by Jon Tyson" loading="lazy"/>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="lc-block mb-3">
-                                                <div>
 
-                                                    <h2 class="h5">Card Title</h2>
-
-                                                    <p>Some quick example text to build on the card title and make up the
-                                                        bulk of the card's content..</p>
-                                                </div>
-                                            </div>
-                                            <div class="lc-block">
-                                                <a class="btn btn-primary" href="#" role="button">Button</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide h-100">
-                                <div class="card shadow mx-auto">
-                                    <div class="card-body">
-                                        <div class="lc-block">
-                                            <img class="img-fluid"
-                                                 src="https://images.unsplash.com/photo-1606685544086-ce4ab1b91c21?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
-                                                 srcset="https://images.unsplash.com/photo-1606685544086-ce4ab1b91c21?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1606685544086-ce4ab1b91c21??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1606685544086-ce4ab1b91c21??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1606685544086-ce4ab1b91c21??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1606685544086-ce4ab1b91c21??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1024 1024w"
-                                                 sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
-                                                 alt="Photo by Vianney CAHEN" loading="lazy"/>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="lc-block mb-3">
-                                                <div>
-
-                                                    <h2 class="h5">Card Title</h2>
-
-                                                    <p>Some quick example text to build on the card title and make up the
-                                                        bulk of the card's content..</p>
-                                                </div>
-                                            </div>
-                                            <div class="lc-block">
-                                                <a class="btn btn-primary" href="#" role="button">Button</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide h-100">
-                                <div class="card shadow mx-auto">
-                                    <div class="card-body">
-                                        <div class="lc-block">
-                                            <img class="img-fluid"
-                                                 src="https://images.unsplash.com/photo-1597489276008-79951d6be8bb?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8N3x8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
-                                                 srcset="https://images.unsplash.com/photo-1597489276008-79951d6be8bb?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8N3x8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1597489276008-79951d6be8bb??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8N3x8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1597489276008-79951d6be8bb??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8N3x8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1597489276008-79951d6be8bb??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8N3x8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1597489276008-79951d6be8bb??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8N3x8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1024 1024w"
-                                                 sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
-                                                 alt="Photo by Cherry Lin" loading="lazy"/>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="lc-block mb-3">
-                                                <div >
-
-                                                    <h2 class="h5">Card Title</h2>
-
-                                                    <p>Some quick example text to build on the card title and make up the
-                                                        bulk of the card's content..</p>
-                                                </div>
-                                            </div>
-                                            <div class="lc-block">
-                                                <a class="btn btn-primary" href="#" role="button">Button</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide h-100">
-                                <div class="card shadow mx-auto">
-                                    <div class="card-body">
-                                        <div class="lc-block">
-                                            <img class="img-fluid"
-                                                 src="https://images.unsplash.com/photo-1594398901592-4f07a2e0b5f1?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OXx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
-                                                 srcset="https://images.unsplash.com/photo-1594398901592-4f07a2e0b5f1?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OXx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1594398901592-4f07a2e0b5f1??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OXx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1594398901592-4f07a2e0b5f1??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OXx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1594398901592-4f07a2e0b5f1??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OXx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1594398901592-4f07a2e0b5f1??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OXx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1024 1024w"
-                                                 sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
-                                                 alt="Photo by Grant Durr" loading="lazy"/>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="lc-block mb-3">
-                                                <div>
-
-                                                    <h2 class="h5">Card Title</h2>
-
-                                                    <p>Some quick example text to build on the card title and make up the
-                                                        bulk of the card's content..</p>
-                                                </div>
-                                            </div>
-                                            <div class="lc-block">
-                                                <a class="btn btn-primary" href="#" role="button">Button</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide h-100">
-                                <div class="card shadow mx-auto">
-                                    <div class="card-body">
-                                        <div class="lc-block">
-                                            <img class="img-fluid"
-                                                 src="https://images.unsplash.com/photo-1604309225246-86ad9ff7d79f?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTB8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDg3MTIxfDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
-                                                 srcset="https://images.unsplash.com/photo-1604309225246-86ad9ff7d79f?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTB8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDg3MTIxfDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1604309225246-86ad9ff7d79f??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTB8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDg3MTIxfDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1604309225246-86ad9ff7d79f??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTB8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDg3MTIxfDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1604309225246-86ad9ff7d79f??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTB8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDg3MTIxfDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1604309225246-86ad9ff7d79f??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTB8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDg3MTIxfDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1024 1024w"
-                                                 sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
-                                                 alt="Photo by willy wo" loading="lazy"/>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="lc-block mb-3">
-                                                <div >
-
-                                                    <h2 class="h5">Card Title</h2>
-
-                                                    <p>Some quick example text to build on the card title and make up the
-                                                        bulk of the card's content..</p>
-                                                </div>
-                                            </div>
-                                            <div class="lc-block">
-                                                <a class="btn btn-primary" href="#" role="button">Button</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide h-100">
-                                <div class="card shadow mx-auto">
-                                    <div class="card-body">
-                                        <div class="lc-block">
-                                            <img class="img-fluid"
-                                                 src="https://images.unsplash.com/photo-1587117238257-8cacadca6ae4?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTd8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDM1MjA3fDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
-                                                 srcset="https://images.unsplash.com/photo-1587117238257-8cacadca6ae4?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTd8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDM1MjA3fDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1587117238257-8cacadca6ae4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTd8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDM1MjA3fDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1587117238257-8cacadca6ae4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTd8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDM1MjA3fDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1587117238257-8cacadca6ae4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTd8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDM1MjA3fDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1587117238257-8cacadca6ae4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8MTd8fGZ1cm5pdHVyZSUyMHJlZHxlbnwwfDJ8fHwxNjkxNDM1MjA3fDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1024 1024w"
-                                                 sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
-                                                 alt="Photo by Dayana Brooke" loading="lazy"/>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="lc-block mb-3">
-                                                <div >
-
-                                                    <h2 class="h5">Card Title</h2>
-
-                                                    <p>Some quick example text to build on the card title and make up the
-                                                        bulk of the card's content..</p>
-                                                </div>
-                                            </div>
-                                            <div class="lc-block">
-                                                <a class="btn btn-primary" href="#" role="button">Button</a>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
-
                         <div class="swiper-pagination position-relative pt-5 bottom-0"></div>
                     </div>
+
                 </div>
+
             </section>
-            <!-- SERVICIOS -->
+            <!--CARDS DE DESTACADOS-->
             <section  th:fragment="servicios">
-                <section class="py-6" style="background:url(./img/doom_vfr_4k.jpg)  center / cover no-repeat;">
-                    <div class="container text-center py-5 mb-4 ">
-                        <div class="p-5 mb-4 lc-block">
+                <section class="pt-5" style="background:url(./img/doom_vfr_4k.jpg)  center / cover no-repeat;">
+                    <div class="container text-center ">
+                        <div class="p-5 lc-block">
                             <div class="lc-block mb-4">
                                 <div >
                                     <h2 class="display-1 fw-bold">Novedades Destacadas</h2>
@@ -346,128 +195,118 @@
                     </div>
                 </section>
 
-                <!--CARDS DE DESTACADOS-->
                 <section class="mx-auto p-2" style="max-width: 1200px;">
 
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3" th:each="book : ${books}" th:if="${book.highlight}">
+                    <div class="row row-cols-1 row-cols-md-4 g-4">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3" th:each="book : ${books}" th:if="${book.highlight}">
 
-            <div class="card h-100 shadow-lg">
-                <a th:href="@{/home/book/{id} (id=${book.id})}">
-                    <img th:src="@{/images/{img} (img = ${book.image})}" class="card-img-top" alt="imagen"/>
-                </a>
+                            <div class="card h-100 shadow-lg">
+                                <a th:href="@{/home/book/{id} (id=${book.id})}">
+                                    <img th:src="@{/images/{img} (img = ${book.image})}" class="card-img-top" alt="imagen"/>
+                                </a>
 
-                <div class="card-body d-flex flex-column align-items-center">
-                    <h5 class="card-title" th:text="${#strings.length(book.name) > 20} ? ${#strings.substring(book.name, 0, 20) + '...'} : ${book.name}"></h5>
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    <h5 class="card-title" th:text="${#strings.length(book.name) > 20} ? ${#strings.substring(book.name, 0, 20) + '...'} : ${book.name}"></h5>
 
-                    <p class="card-text" th:text="'₡ ' + ${#numbers.formatDecimal(book.price, 0, 'COMMA', 2, 'POINT')}"></p>
-                    <form th:action="@{/agregar-al-carrito}" method="post">
-                        <input type="hidden" name="productId" th:value="${book.id}" />
-                        <a type="submit" class="button">
-                            <div class="button-wrapper">
-                                <div class="text">Agregar al Carrito</div>
-                                <span class="icon">
-                                    <svg viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
-                                    </svg>
-                                </span>
+                                    <p class="card-text" th:text="'₡ ' + ${#numbers.formatDecimal(book.price, 0, 'COMMA', 2, 'POINT')}"></p>
+                                    <form th:action="@{/agregar-al-carrito}" method="post">
+                                        <input type="hidden" name="productId" th:value="${book.id}" />
+                                        <a type="submit" class="button">
+                                            <div class="button-wrapper">
+                                                <div class="text">Agregar al Carrito</div>
+                                                <span class="icon">
+                                                    <svg viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </form>
+                                </div>
                             </div>
-                        </a>
-                    </form>
-                </div>
-            </div>
 
-        </div>  
-    </div>
+                        </div>  
+                    </div>
 
-</section>
-
+                </section>
+<!-- SERVICIOS -->
                 <section>
                     <div class="container col-xxl-8 px-4 py-5">
                         <div class="row align-items-center g-5 py-5">
                             <div class="col-10 col-sm-8 col-lg-6">
-                                <img src="https://via.placeholder.com/1080x1080.png/f4f6fa/dce2ef"
+                                <img th:src="@{img/bookDelivery.jpg}"
                                      class="d-block mx-lg-auto img-fluid" alt="" loading="lazy" width="1080" height="1080"/>
                             </div>
                             <div class="col-lg-6">
                                 <div class="lc-block mb-3">
                                     <div >
-                                        <h1 class="display-4 fw-bold">The quick brown 1</h1>
+                                        <p class="display-4 fw-bold h1">Servicios de Envío a Domicilio</p>
                                     </div>
                                 </div>
 
                                 <div class="lc-block mb-4">
                                     <div >
-                                        <p class="lead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et
-                                            metus id ligula malesuada placerat sit amet quis enim. Aliquam erat volutpat. In
-                                            pellentesque scelerisque auctor.</p>
+                                        <p class="lead">En Storybound Books, estamos comprometidos a hacer que la exploración del mundo literario sea accesible y emocionante, independientemente de dónde te encuentres. ¡Descubre, elige y sumérgete en historias fascinantes con nuestra venta de libros en línea y servicios de envío a domicilio!</p>
                                     </div>
                                 </div>
-
-                                <!--                            <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a
-                                                                    class="btn btn-primary px-4 me-md-2" href="#" role="button">Click me, I'm a
-                                                                    button</a>
-                                                                <a class="btn btn-outline-secondary px-4" href="#" role="button">Click me, I'm a
-                                                                    button</a>
-                                                            </div>-->
-
                             </div>
                         </div>
                         <div class="row  align-items-center g-5 py-5">
                             <div class="col-10 col-sm-8 col-lg-6 order-lg-2">
-                                <img src="https://via.placeholder.com/1080x1080.png/f4f6fa/dce2ef"
-                                     class="d-block mx-lg-auto img-fluid" alt="" loading="lazy" width="1080" height="1080"/>
+                                <img th:src="@{/img/cofeeBooks.jpg}" alt="imagen de cafe y lectura"
+                                     class="d-block mx-lg-auto img-fluid" loading="lazy" width="1080" height="1080"/>
                             </div>
                             <div class="col-lg-6 order-lg-1">
                                 <div class="lc-block mb-3">
-                                    <div >
-                                        <h1 class="display-4 fw-bold">The quick brown 2</h1>
+                                    <div>
+                                        <p class="display-4 fw-bold h1">Cafetería y Lectura</p>
                                     </div>
                                 </div>
 
                                 <div class="lc-block mb-4">
                                     <div >
-                                        <p class="lead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et
-                                            metus id ligula malesuada placerat sit amet quis enim. Aliquam erat volutpat. In
-                                            pellentesque scelerisque auctor.</p>
+                                        <p class="lead"> En Storybound Books, fusionamos la calidez de nuestra cafetería con espacios diseñados para que disfrutes de la lectura. Nuestra cafetería no solo ofrece una selección exquisita de café y delicias, sino que también proporciona un ambiente acogedor donde puedes sumergirte en un buen libro. Imagina saborear tu bebida favorita mientras te pierdes en las páginas de una historia fascinante.</p>
                                     </div>
                                 </div>
-
-                                <!--                            <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a
-                                                                    class="btn btn-primary px-4 me-md-2" href="#" role="button">Click me, I'm a
-                                                                    button</a>
-                                                                <a class="btn btn-outline-secondary px-4" href="#" role="button">Click me, I'm a
-                                                                    button</a>
-                                                            </div>-->
 
                             </div>
                         </div>
                         <div class="row align-items-center g-5 py-5">
                             <div class="col-10 col-sm-8 col-lg-6">
-                                <img src="https://via.placeholder.com/1080x1080.png/f4f6fa/dce2ef"
-                                     class="d-block mx-lg-auto img-fluid" alt="" loading="lazy" width="1080" height="1080"/>
+                                <img th:src="@{/img/coworking.jpg}" alt="imagen coworking.jpg"
+                                     class="d-block mx-lg-auto img-fluid" loading="lazy" width="1080" height="1080"/>
                             </div>
                             <div class="col-lg-6">
                                 <div class="lc-block mb-3">
                                     <div >
-                                        <h1 class="display-4 fw-bold">The quick brown 3</h1>
+                                        <p class="display-4 fw-bold h1">Coworking y Wi-Fi</p>
                                     </div>
                                 </div>
 
                                 <div class="lc-block mb-4">
                                     <div >
-                                        <p class="lead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et
-                                            metus id ligula malesuada placerat sit amet quis enim. Aliquam erat volutpat. In
-                                            pellentesque scelerisque auctor.</p>
+                                        <p class="lead">En Storybound Books, no solo nos apasiona la literatura, sino que también entendemos la importancia de crear un entorno donde la inspiración y la productividad se encuentren. Por eso, estamos encantados de ofrecer nuestro Espacio de Coworking, diseñado para aquellos que buscan un lugar acogedor y tranquilo para trabajar o estudiar.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row  align-items-center g-5 py-5">
+                            <div class="col-10 col-sm-8 col-lg-6 order-lg-2">
+                                <img th:src="@{/img/escritura_cultural.jpg}" alt="imagen de libro y cultura"
+                                     class="d-block mx-lg-auto img-fluid" loading="lazy" width="1080" height="1080"/>
+                            </div>
+                            <div class="col-lg-6 order-lg-1">
+                                <div class="lc-block mb-3">
+                                    <div>
+                                        <p class="display-4 fw-bold h1">Eventos y Literarios</p>
                                     </div>
                                 </div>
 
-                                <!--                            <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a
-                                                                    class="btn btn-primary px-4 me-md-2" href="#" role="button">Click me, I'm a
-                                                                    button</a>
-                                                                <a class="btn btn-outline-secondary px-4" href="#" role="button">Click me, I'm a
-                                                                    button</a>
-                                                            </div>-->
+                                <div class="lc-block mb-4">
+                                    <div >
+                                        <p class="lead">En Storybound Books, nos emociona llevarte más allá de las páginas de los libros con nuestra serie de Eventos Culturales y Literarios.</p>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>

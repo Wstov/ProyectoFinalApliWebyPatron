@@ -41,11 +41,7 @@
             }
         </script>
 
-        <style>
-            .mySwiper-RANDOMID .card {
-                max-width: 21rem
-            }
-        </style>
+        
         <!--FIN DE CODIgO PARA LOS CARDS-->
 
     </head>
@@ -75,37 +71,28 @@
                                 </li>
                                 <li
                                     class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738">
-                                    <a th:href="@{/home/nosotros}" class="nav-link ">Nosotros</a>
+                                    <a th:href="@{/home/aboutus}" class="nav-link ">Nosotros</a>
                                 </li>
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom nav-item nav-item-32739">
-                                    <a href="#" class="nav-link ">Servicios</a>
+                                    <a th:href="@{/home/services}" class="nav-link ">Servicios</a>
                                 </li>
                                 <li
                                     class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738">
-                                    <a href="#" class="nav-link ">Buscar</a>
+                                    <a th:href="@{/home/contact}" class="nav-link ">Contactanos</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="ms-lg-auto">
                             <div class="btn-group" role="group">
-                                <!--                            <a class="btn btn-primary" href="#">Buscar</a></div>-->
-                                <!--                            <div class="btn-group" role="group">
-                                                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                    Otros
-                                                                </button>
-                                                                <ul class="dropdown-menu">
-                                                                    <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-                                                                                                                            <li><a class="dropdown-item" th:href="@{/admin}">Admin</a></li>
-                                                                                                                        </ul>
-                                                                                                                    </div>-->
+                                
                                 <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                     Home
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-dark">
                                     <li><a class="dropdown-item" th:href="@{/home}">Incio</a></li>
-                                    <li><a class="dropdown-item" href="#">Servicios</a></li>
-                                    <li><a class="dropdown-item" th:href="@{/home/nosotros}">Nosotros</a></li>
-                                    <li><a class="dropdown-item" href="#">Contacto</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/home/services}">Servicios</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/home/aboutus}">Nosotros</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/home/contact}">Contacto</a></li>
                                     <li><a class="dropdown-item" th:href="@{/admin}">Admin</a></li>
                                     <li><a class="dropdown-item" href="#">Salir</a></li>
                                 </ul>
