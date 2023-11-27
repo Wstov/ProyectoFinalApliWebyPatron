@@ -30,7 +30,7 @@ public interface StockMapper {
     })
 
     Stock toStock(StockEntity stockEntity);
-    List<Stock> toStocks(List<ProductEntity> productEntities);
+    List<Stock> toStocks(List<StockEntity> stockEntitys);
     @InheritInverseConfiguration
     StockEntity toStockEntity(Stock stock);
 }

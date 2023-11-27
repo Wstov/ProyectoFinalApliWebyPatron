@@ -72,7 +72,7 @@
                             <div  class="scroll-container" style="height: 350px; overflow-y: auto;">
 
                                 <div class="zoom" th:each="gender : ${booksGenders}" th:if="${gender.genero eq showBook.genero and gender.name ne showBook.name}">
-                                    <a th:href="@{/home/book/{id} (id=${gender.id})}">
+                                    <a style="text-decoration: none;" th:href="@{/home/book/{id} (id=${gender.id})}">
                                         <div class="d-flex align-items-center" >
                                             <!-- División para la imagen -->
                                             <div class="p-2">
@@ -97,12 +97,12 @@
                 <div class="container">
                     <div class="lc-block mb-4">
                         <div>
-                            <h1 class="fw-bold display-2 about-title">Sobre el Libro</h1>
+                            <p class="fw-bold display-2 about-title">Sobre el Libro</p>
                         </div>
                     </div><!-- /lc-block -->
                     <div class="lc-block mb-5">
                         <div>
-                            <p class="fs-4" th:text="${showBook.description}"></p>
+                            <p class="fs-5" th:text="${showBook.description}"></p>
                         </div>
                     </div>
                 </div>
