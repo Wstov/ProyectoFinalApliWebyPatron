@@ -5,6 +5,7 @@ import com.libreria.application.repository.StockRepository;
 import com.libreria.application.service.ProductService;
 import com.libreria.application.service.StockService;
 import com.libreria.application.service.UploadFile;
+import com.libreria.application.service.ValidateStock;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -27,5 +28,10 @@ public class BeanConfiguration {
         return new StockService(stockRepository);
     }
     
+    @Bean
+    public ValidateStock validateStock(StockService stockService){
+        return new ValidateStock(stockService);
+        
+    }
     
 }

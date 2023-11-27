@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Storybound Books</title>
+
+    </head>
+
+    <body>
+
+        <!-- Navigation -->
+        <div th:insert="~{admin/template_admin.html::header}"></div>
+
+        <!-- Page Content -->
+        <div class="container">
+
+
+            <!-- Page Heading/Breadcrumbs -->
+            <h1 class="mt-4 mb-3">
+                Storybound Books <small>Inventario</small>
+            </h1>
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a th:href="@{/products/admin.html}">Home</a></li>
+                <li class="breadcrumb-item active">Ver Inventario</li>
+            </ol>
+
+            <a class="btn btn-primary" th:href="@{/admin/products/stock/create-unit-product/{id}  (id = ${idProduct}) }" > Añadir unidades</a>
+            <h2>Inventario</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Fecha Registro</th>
+                        <th scope="col">Entrada/Unidades</th>
+                        <th scope="col">Salida/Unidades</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Saldo/Unidades</th>	
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="stock:${stocks}">
+                        <td th:text = "${stock.dateCreated}"></td>
+                        <td th:text = "${stock.unitIn}"></td>
+                        <td th:text = "${stock.unitOut}"></td>
+                        <td th:text = "${stock.description}"></td>
+                        <td th:text = "${stock.balance}"></td>
+                    </tr>       
+                </tbody>
+            </table>
+
+        </div>
+        <!-- /.container -->
+
+        <!-- Footer -->
+        <div th:insert="~{layout/plantilla.html::footer}"></div>
+
+    </body>
+
+</html>

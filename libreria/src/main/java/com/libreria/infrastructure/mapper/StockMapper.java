@@ -26,7 +26,8 @@ public interface StockMapper {
         @Mapping(source = "unitIn", target = "unitIn"),
         @Mapping(source = "unitOut", target = "unitOut"),
         @Mapping(source = "description", target = "description"),
-        @Mapping(source = "balance", target = "balance")
+        @Mapping(source = "balance", target = "balance"),
+        @Mapping(source = "productEntity", target = "product")
     })
 
     Stock toStock(StockEntity stockEntity);

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      >
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Storybound Books</title>
+        <link th:href="@{/css/heroic-features.css" rel="stylesheet}"/>
+    </head>
+
+    <body>
+
+        <!-- Navigation -->
+        <div th:insert="~{admin/template_admin.html::header}"></div>
+
+        <!-- Page Content -->
+        <div class="container">
+
+
+            <!-- Page Heading/Breadcrumbs -->
+            <h1 class="mt-4 mb-3">
+                Añadir Cantidad de <small>Productos</small>
+            </h1>
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a th:href="@{/products/admin.html}">Admin</a></li>
+                <li class="breadcrumb-item active">Añadir unidades</li>
+            </ol>
+            <div class="lc-block col-md-8">
+                <div>
+                    <p class="lead">Registro de cantidad de productos.</p>
+                </div>
+            </div>
+
+
+            <div class="p-5 mb-5 lc-block shadow rounded-3 col-xl-10 offset-xl-1">
+
+                <form class="form-horizontal" th:action="@{/admin/products/stock/save-unit-product}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="idProduct" th:value="${idProduct}"/>
+                    <div class="form-group ">
+                        <label for="unitIn">Cantidad:</label>
+                        <input name="unitIn" type="number" class="form-control" id="unitIn" placeholder="Ingrese la cantidad del producto" value=""/>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg mt-5" style="width: 100%;">Guardar</button>
+                </form>
+            </div>
+        </div>
+
+
+
+        <!-- /.container -->
+
+        <!-- Footer -->
+        <div th:insert="~{layout/plantilla.html::footer}"></div>
+
+
+
+    </body>
+
+</html>

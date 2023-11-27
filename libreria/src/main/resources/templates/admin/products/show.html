@@ -72,7 +72,7 @@
 
                             <td><a class="btn btn-warning" th:href="@{/admin/products/edit/{id} (id = ${book.id})}">Editar</a></td>
                             <td><a class="btn btn-danger" th:href="@{/admin/products/delete/{id} (id=${book.id})}">Eliminar</a></td>
-                            <td><a  class="btn btn-success" href="#">Inventario</a></td>
+                            <td><a  class="btn btn-success" th:href="@{/admin/products/stock/{id} (id=${book.id})}">Inventario</a></td>
                         </tr>       
                     </tbody>
                 </table>
