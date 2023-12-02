@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      >
+    <head th:insert="~{layout/plantilla :: head}">
+        <title>Storybound Books</title>
+    </head>
+
+<body>
+        <div th:insert="~{admin/template_admin.html::header}"></div>
+        <section class="bg-light">
+            <div class="container pb-5">
+                <div class="p-5 lc-block">
+
+                    <div class="lc-block">
+                        <div>
+                            <h2 class="fw-bolder display-3">Storybound Books.
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="lc-block col-md-8">
+                        <div>
+                            <p class="lead">Registro de Usuario</p>
+                        </div>
+                    </div>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a th:href="@{/admin}">Inicio</a></li>
+                        <li class="breadcrumb-item active">Registo de Usuario</li>
+                    </ol>
+                </div>
+                <div class="p-5 lc-block shadow rounded-3 col-xl-10 offset-xl-1">
+
+                    <form class="form-horizontal" th:action="@{/register}" method="post" enctype="multipart/form-data">
+
+                        <div class="form-group mb-4">
+                            <label for="firstName">Nombre:</label>
+
+                            <input name="firstName" type="text" class="form-control" id="firstName" placeholder="Ingrese su Nombre" value=""/>
+                        </div>
+                        
+                                                <div class="form-group mb-4">
+                            <label for="lastName">Apellido:</label>
+                        
+                            <input name="lastName" type="text" class="form-control" id="lastName" placeholder="Ingrese su Nombre" value=""/>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="email">Email:</label>
+                                                 
+                            <input name="email" type="email" class="form-control" id="email" placeholder="Ingrese su Email" value=""/>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="address">Dirección:</label>
+
+                            <input name="address" type="text" class="form-control" id="address" placeholder="Ingrese su dirección" value=""/>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="cellphone">Teléfono:</label>
+
+                            <input name="cellphone" type="number" class="form-control" id="cellphone" placeholder="Ingrese el numero de teléfono" value=""/>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="password">Contraseña:</label>
+                            <input name="password" type="password" class="form-control" id="publicacion" placeholder="Ingrese una contraseña" value=""/>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg mt-5" style="width: 100%;">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <div th:insert="~{layout/plantilla.html::footer}"></div>
+</body>
+
+</html>

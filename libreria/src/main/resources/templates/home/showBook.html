@@ -39,7 +39,7 @@
                         <!-- Sección de la portada del libro (a la izquierda) -->
                         <div class="col-md-4 mb-4">
                             <!-- Asumo que tienes un atributo 'imagen' en tu modelo -->
-                            <img th:src="@{/images/{img} (img = ${showBook.image})}" class="img-fluid" alt="Portada del libro" style="width: 100%; height: auto;"/>
+                            <img th:src="@{/images/{img} (img = ${showBook.image})}" class="img-fluid grow-on-hover" alt="Portada del libro" style="width: 100%; height: auto;"/>
                         </div>
                         <!-- Sección de la información del libro (a la derecha) -->
                         <div class="col-md-5">
@@ -52,6 +52,13 @@
                             <p><strong>Idioma:</strong> <span th:text="${showBook.idioma}"></span></p>
                             <p><strong>Género:</strong> <span th:text="${showBook.genero}"></span></p>
                             <p><strong>Precio:</strong> <span th:text="'₡ ' + ${#numbers.formatDecimal(showBook.price, 0, 'COMMA', 2, 'POINT')}"></span></p>
+                            <div class="form-group row mb-3">
+                                <label for="cantidad" class="col-sm-2 col-form-label"><strong>Cantidad:</strong></label>
+                                <div class="col-sm-2">
+                                    <input type="number" class="form-control" id="cantidad" name="cantidad" min="0"/>
+                                </div>
+                            </div>
+
                             <a type="submit" class="button">
                                 <div class="button-wrapper">
                                     <div class="text">Agregar al Carrito</div>
