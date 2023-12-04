@@ -1,23 +1,29 @@
 package com.libreria.infrastructure.controller;
 
 import com.libreria.application.service.ProductService;
+import com.libreria.application.service.StockService;
 import com.libreria.domain.Product;
+import com.libreria.domain.Stock;
 import com.libreria.domain.User;
+import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/home")
+@Slf4j
 public class HomeController {
 
     private final ProductService productService;
+    private final StockService stockService;
 
-    public HomeController(ProductService productService) {
+    public HomeController(ProductService productService, StockService stockService) {
         this.productService = productService;
+        this.stockService = stockService;
     }
 
     @GetMapping //Responde a una peticion de tipo get mapping
@@ -61,6 +67,18 @@ public class HomeController {
         model.addAttribute("booksGenders", products);
         
         return "/home/showBook";
+    }
+    
+    @GetMapping("/product-detail/{id}")
+    public String productDetail(@PathVariable Integer id, Model model){
+        List<Stock> stocks = stockService.getStockByProduct(productService.getProductById(id));
+        log.info("Id product: {}", id);
+        log.info("stock size: {}", stocks.size());
+        Integer lastBalance = stocks.get(stocks.size()-1).getBalance();
+
+        model.addAttribute("product", productService.getProductById(id));
+        model.addAttribute("stock", lastBalance);
+        return "user/productdetail";
     }
 
 }

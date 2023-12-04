@@ -15,90 +15,71 @@
 }
 
 /*BUY BUTTON*/
-.button {
-  --width: 150px;
-  --height: 35px;
-  --tooltip-height: 35px;
-  --tooltip-width: 90px;
-  --gap-between-tooltip-to-button: 18px;
-  --button-color: #222;
-  --tooltip-color: #fff;
-  width: var(--width);
-  height: var(--height);
-  background: var(--button-color);
-  position: relative;
-  text-align: center;
-  border-radius: 0.45em;
-  font-family: "Arial";
-  transition: background 0.3s;
-}
-
-
-.button::after,.button::before {
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.5s;
-}
-
-.text {
+.CartBtn {
+  width: 40%;
+  height: 40px;
+  border-radius: 12px;
+  border: none;
+  background-color: #1c1c1c;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.button-wrapper,.text,.icon {
+  cursor: pointer;
+  transition-duration: .5s;
   overflow: hidden;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
+  position: relative;
+  text-decoration: none;
+}
+
+.IconContainer {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  color: #fff;
-}
-
-.text {
-  top: 0
-}
-
-.text,.icon {
-  transition: top 0.5s;
+  left: -50px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  transition-duration: .5s;
+  
 }
 
 .icon {
-  color: #fff;
-  top: 100%;
+  border-radius: 1px;
+}
+
+.text_buy {
+  height: 100%;
+  width: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff;
+  z-index: 1;
+  transition-duration: .5s;
+  font-size: 1.04em;
+  font-weight: 600;
+  margin: 0;
 }
 
-.icon svg {
-  width: 24px;
-  height: 24px;
+.CartBtn:hover .IconContainer {
+  transform: translateX(58px);
+  border-radius: 40px;
+  transition-duration: .5s;
 }
 
-.button:hover {
-  background: #222;
+.CartBtn:hover .text_buy  {
+  transform: translate(10px,0px);
+  transition-duration: .5s;
 }
 
-.button:hover .text {
-  top: -100%;
-}
-
-.button:hover .icon {
-  top: 0;
-}
-
-.button:hover:before,.button:hover:after {
-  opacity: 1;
-  visibility: visible;
-}
-
-.button:hover:after {
-  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) - 20px);
-}
-
-.button:hover:before {
-  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
+.CartBtn:active {
+  transform: scale(0.95);
+  transition-duration: .5s;
 }
 /*END BUY BUTTON*/
 
@@ -200,3 +181,181 @@
     transform: scale(1.04); /* Puedes ajustar el valor según lo que desees */
     transition: transform 0.3s ease; /* Agrega una transición para que sea suave */
 }
+
+
+/*VER MAS*/
+.button_show_more {
+  --primary-color: #2d2d2d;
+  --secondary-color: #fff;
+  --hover-color: #111;
+  --arrow-width: 10px;
+  --arrow-stroke: 2px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 20px;
+  color: var(--secondary-color);
+  padding: 6px 50px;
+  background: var(--primary-color);
+  display: flex;
+  transition: 0.2s background;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.button_show_more .arrow-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button_show_more .arrow {
+  margin-top: 1px;
+  width: var(--arrow-width);
+  background: var(--primary-color);
+  height: var(--arrow-stroke);
+  position: relative;
+  transition: 0.2s;
+}
+
+.button_show_more .arrow::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  border: solid var(--secondary-color);
+  border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+  display: inline-block;
+  top: -3px;
+  right: 3px;
+  transition: 0.2s;
+  padding: 3px;
+  transform: rotate(-45deg);
+}
+
+.button_show_more:hover {
+  background-color: var(--hover-color);
+}
+
+.button_show_more:hover .arrow {
+  background: var(--secondary-color);
+}
+
+.button_show_more:hover .arrow:before {
+  right: 0;
+}
+/*END VER MAS*/
+
+/*DELETE BUTTOM*/
+.delete_button {
+  position: relative;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #cc0000;
+  background-color: #e50000;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.delete_button, .delete_button__icon, .delete_button__text {
+  transition: all 0.3s;
+}
+
+.delete_button .delete_button__text {
+  transform: translateX(35px);
+  color: #fff;
+  font-weight: 600;
+}
+
+.delete_button .delete_button__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: #cc0000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete_button .delete_svg {
+  width: 20px;
+}
+
+.delete_button:hover {
+  background: #cc0000;
+}
+
+.delete_button:hover .delete_button__text {
+  color: transparent;
+}
+
+.delete_button:hover .delete_button__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+.delete_button:active .delete_button__icon {
+  background-color: #b20000;
+}
+
+.delete_button:active {
+  border: 1px solid #b20000;
+}
+/*END DELETE BUTTOM*/
+
+/*BOTON DE PAGO*/
+.Btn {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(15, 15, 15);
+  border: none;
+  color: white;
+  font-weight: 600;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  text-decoration: none;
+}
+
+.svgIcon {
+  width: 16px;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.Btn::before {
+  width: 100%;
+  height: 130px;
+  position: absolute;
+  content: "";
+  background-color: white;
+  border-radius: 50%;
+  left: -100%;
+  top: 0;
+  transition-duration: .3s;
+  mix-blend-mode: difference;
+}
+
+.Btn:hover::before {
+  transition-duration: .3s;
+  transform: translate(100%,-50%);
+  border-radius: 0;
+}
+
+.Btn:active {
+  transform: translate(5px,5px);
+  transition-duration: .3s;
+}
+/*END BOTON DE PAGO*/

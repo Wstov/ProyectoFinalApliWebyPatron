@@ -4,10 +4,28 @@
  */
 package com.libreria.domain;
 
+import java.math.BigDecimal;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.ToString;
+
 /**
  *
  * @author Wstov
  */
-public class IntemCart {
+@Data
+@AllArgsConstructor
+@ToString
+public class ItemCart {
+    private Integer idProduct;
+    private String nameProduct;
+    private Integer quantity;
+    private BigDecimal price;
+    
+    public BigDecimal getTotalPriceItem(){
+        return price.multiply(BigDecimal.valueOf(quantity));
+    }
+    
+    
     
 }

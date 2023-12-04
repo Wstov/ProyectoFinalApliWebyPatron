@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      >
+    <head th:insert="~{layout/plantilla :: head}">
+        <title>Storybound Books</title>
+    </head>
+    <!--    <body>
+            <div th:insert="~{user/template_user::header_User}"></div>
+    
+       Navigation 
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" th:href="@{/home}">Spring Ecommerce</a>
+    
+    
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/login}">Login</a>
+              </li>
+            </ul>
+          </div>    
+        </div>
+      </nav>
+    
+    
+       Page Content 
+      <div class="container">
+    
+        <div class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h2>Ingresar</h2>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        
+        <form  th:action="@{/login}" method="post">
+          <div class="form-group">
+            <label for="username"> Email:  </label>
+            <input type="email" class="form-control" id="username" name="username" placeholder="Ingrese su email" required="" autocomplete="off"/>
+    
+          </div>
+    
+          <div class="form-group">
+            <label for="password"> Contraseña:</label>
+            <input type="password"  class="form-control" id="password" name="password" placeholder="Ingrese su contraseña" required=""/>       
+          </div>
+    
+          <div class="form-group">
+            <div class="col-sm-2">
+              <button type="submit" class="btn btn-dark"> <span class="glyphicon glyphicon-ok"></span> Ingresar</button>
+            </div>      
+          </div>    
+        </form>
+        <a th:href="@{/register}" class="card-link">Si aún no tiene cuenta aqui puede registrarse</a>
+      </div>
+       /.container 
+    
+       Footer 
+            <div th:insert="~{layout/plantilla.html::footer}"></div>
+    
+    </body>-->
+
+   <body>
+    <div th:insert="~{user/template_user::header_User}"></div>
+    <main class="d-flex align-items-center justify-content-center py-5 bg-body-tertiary" >
+        <div class="container" style="max-width: 400px;">
+            <section class="form-signin text-center">
+                <form th:action="@{/login}" method="POST">
+                    <img src="/img/storybound_books_logo_black.png" 
+                         width="220" 
+                         height="105" 
+                         class="align-middle me-1 mb-4"
+                         alt="Logo"/>
+                    <h1 class="h3 mb-3 fw-normal">Inicia Sesión</h1>
+
+                    <div class="form-floating mb-2">
+                        <input type="email" class="form-control" id="username" name="username" placeholder="name@example.com"/>
+                        <label for="username">Dirección de Correo</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password"/>
+                        <label for="password">Contraseña</label>
+                    </div>
+
+                    <div class="form-check text-start my-3">
+                        <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault"/>
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Recordarme
+                        </label>
+                    </div>
+                    <button class="btn btn-primary w-100 py-2" type="submit">Ingresar</button>
+                    <p>No tienes una cuenta? <a class="cursor-pointer">Registrate aqui!</a></p>
+                    <p class="mt-5 mb-3 text-body-secondary">Storybound Books © 2017–2023</p>
+                </form>
+            </section>
+        </div>
+    </main>
+    <div th:insert="~{layout/plantilla.html::footer}"></div>
+</body>
+
+
+
+</html>

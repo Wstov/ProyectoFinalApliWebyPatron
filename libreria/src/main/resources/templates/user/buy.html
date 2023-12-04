@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      >
+    <head th:insert="~{layout/plantilla :: head}">
+        <title>Storybound Books</title>
+    </head>
+
+    <body class="bg-body-tertiary">
+        <div th:insert="~{user/template_user::header_User}"></div>
+
+        <main class="container pb-5" >
+            <div class="py-5 text-center">
+                <img src="/img/storybound_books_logo_black.png" 
+                     width="220" 
+                     height="105" 
+                     class="align-middle me-1 mb-4"
+                     alt="Logo"/>
+                <h2>Formulario de Pago</h2>
+                <p class="lead">Garantizamos la protección total de tu información financiera. Por favor, completa los 
+                    siguientes campos con los detalles de tu tarjeta de crédito para finalizar tu compra. 
+                    Gracias por elegir Storybound Books para tu experiencia literaria. ¡Feliz lectura!</p>
+            </div>
+
+            <div class="row g-5">
+                <div class="col-md-5 col-lg-4 order-md-last">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-primary">Productos Seleccionados</span>
+                        <span class="badge bg-primary rounded-pill">3</span>
+                    </h4>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 class="my-0">Product name</h6>
+                                <small class="text-body-secondary">Brief description</small>
+                            </div>
+                            <span class="text-body-secondary">$12</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 class="my-0">Second product</h6>
+                                <small class="text-body-secondary">Brief description</small>
+                            </div>
+                            <span class="text-body-secondary">$8</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 class="my-0">Third item</h6>
+                                <small class="text-body-secondary">Brief description</small>
+                            </div>
+                            <span class="text-body-secondary">$5</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
+                            <div class="text-success">
+                                <h6 class="my-0">Promo code</h6>
+                                <small>EXAMPLECODE</small>
+                            </div>
+                            <span class="text-success">−$5</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Total (USD)</span>
+                            <strong>$20</strong>
+                        </li>
+                    </ul>
+
+                    <form class="card p-2">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Promo code"/>
+                            <button type="submit" class="btn btn-secondary">Redeem</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-7 col-lg-8">
+                    <h4 class="mb-3">Dirección de Envio</h4>
+                    <form class="needs-validation" novalidate="">
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="" value="" required=""/>
+                                <div class="invalid-feedback">
+                                    Valid first name is required.
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="lastName" class="form-label">Apellido</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="" value="" required=""/>
+                                <div class="invalid-feedback">
+                                    Valid last name is required.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="username" class="form-label">Username</label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text">@</span>
+                                    <input type="text" class="form-control" id="username" placeholder="Username" required=""/>
+                                    <div class="invalid-feedback">
+                                        Your username is required.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="email" class="form-label">Email <span class="text-body-secondary">(Optional)</span></label>
+                                <input type="email" class="form-control" id="email" placeholder="you@example.com"/>
+                                <div class="invalid-feedback">
+                                    Please enter a valid email address for shipping updates.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="address" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required=""/>
+                                <div class="invalid-feedback">
+                                    Please enter your shipping address.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="address2" class="form-label">Dirección 2 <span class="text-body-secondary">(Optional)</span></label>
+                                <input type="text" class="form-control" id="address2" placeholder="Apartment or suite"/>
+                            </div>
+
+                            <div class="col-md-5">
+                                <label for="country" class="form-label">País</label>
+                                <select class="form-select" id="country" required="">
+                                    <option value="">Elegir...</option>
+                                    <option>Costa Rica</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select a valid country.
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="state" class="form-label">Provincia</label>
+                                <select class="form-select" id="state" required="">
+                                    <option value="">Elegir...</option>
+                                    <option>San José</option>
+                                    <option>Alajuela</option>
+                                    <option>Cartago</option>
+                                    <option>Guanacaste</option>
+                                    <option>Heredia</option>
+                                    <option>Puntarenas</option>
+                                    <option>Limón</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please provide a valid state.
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="zip" class="form-label">Código Postal</label>
+                                <input type="text" class="form-control" id="zip" placeholder="" required=""/>
+                                <div class="invalid-feedback">
+                                    Zip code required.
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4"></hr>
+
+                        <h4 class="mb-3">Método de Pago</h4>
+
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required=""/>
+                                <label class="form-check-label" for="credit">Tarjeta de crédito</label>
+                            </div>
+                            <div class="form-check">
+                                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required=""/>
+                                <label class="form-check-label" for="debit">Tarjeta de débito</label>
+                            </div>
+                            <div class="form-check">
+                                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required=""/>
+                                <label class="form-check-label" for="paypal">PayPal</label>
+                            </div>
+                        </div>
+
+                        <div class="row gy-3">
+                            <div class="col-md-6">
+                                <label for="cc-name" class="form-label">Nombre de la Tarjeta</label>
+                                <input type="text" class="form-control" id="cc-name" placeholder="" required=""/>
+                                <small class="text-body-secondary">Nombre completo como se muestra en la tarjeta.</small>
+                                <div class="invalid-feedback">
+                                    Se requiere el nombre en la tarjeta
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="cc-number" class="form-label">Número de Tarjeta</label>
+                                <input type="text" class="form-control" id="cc-number" placeholder="" required=""/>
+                                <div class="invalid-feedback">
+                                    Se requiere número de tarjeta de crédito
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="cc-expiration" class="form-label">Vencimiento</label>
+                                <input type="date" class="form-control" id="cc-expiration" placeholder="" required=""/>
+                                <div class="invalid-feedback">
+                                    Fecha de vencimiento requerida
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="cc-cvv" class="form-label">CVV</label>
+                                <input type="text" class="form-control" id="cc-cvv" placeholder="" required=""/>
+                                <div class="invalid-feedback">
+                                    Se requiere código de seguridad
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4"></hr>
+
+                        <button class="Btn" type="submit">
+                            Pagar
+                            <svg class="svgIcon" viewBox="0 0 576 512">
+                                <path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path>
+                            </svg>
+                        </button>
+                    </form>
+                    
+                    
+                </div>
+            </div>
+        </main>
+        <div th:insert="~{layout/plantilla.html::footer}"></div>
+
+    </body>
+</html>

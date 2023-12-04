@@ -26,5 +26,9 @@ public class OrderEntity {
     private LocalDateTime dateCreated;
     @ManyToOne
     private UserEntity user;
+    private String addressTow;
+    private String country;
+    private String state;
+    private String zip;
     
 }

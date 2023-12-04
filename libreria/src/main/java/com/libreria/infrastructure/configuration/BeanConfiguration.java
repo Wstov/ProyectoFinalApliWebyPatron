@@ -5,6 +5,8 @@ import com.libreria.application.repository.OrderRepository;
 import com.libreria.application.repository.ProductRepository;
 import com.libreria.application.repository.StockRepository;
 import com.libreria.application.repository.UserRepository;
+import com.libreria.application.service.CartService;
+import com.libreria.application.service.LoginService;
 import com.libreria.application.service.OrderProductService;
 import com.libreria.application.service.OrderService;
 import com.libreria.application.service.ProductService;
@@ -15,6 +17,9 @@ import com.libreria.application.service.UserService;
 import com.libreria.application.service.ValidateStock;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.web.context.WebApplicationContext;
 
 
 
@@ -55,10 +60,24 @@ public class BeanConfiguration {
         return  new UserService(userRepository);
     }
 
+    @Bean
+    @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)//corige el comportamiento por defecto de los beans que son singled
+    public CartService cartSevice() {
+        return new CartService();
+        
+    }
     
     @Bean
     public RegistrationService registrationService(UserService userService){
         return new RegistrationService(userService);
     }
     
+    @Bean 
+    public LoginService loginService(UserService userService){
+        return new LoginService(userService);
+    }
+    
+
+    
+  
 }

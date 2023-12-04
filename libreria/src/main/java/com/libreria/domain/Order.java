@@ -17,6 +17,10 @@ public class Order {
     private LocalDateTime dateCreated;
     private List<OrderProduct> orderProduct;
     private User user;
+    private String addressTow;
+    private String country;
+    private String state;
+    private String zip;
     
     
     public void addOrdersProduct(List<OrderProduct> orderProduct){

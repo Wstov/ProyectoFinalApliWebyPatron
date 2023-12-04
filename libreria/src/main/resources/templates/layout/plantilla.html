@@ -48,10 +48,7 @@
     <body>
 
         <!--INICIO DEL HEADER-->
-
         <header th:fragment="header">
-            
-
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container">
                     <a class="navbar-brand" th:href="@{/home}">
@@ -90,9 +87,11 @@
                             <form class="col-12 col-lg-auto mb-3 mb-lg-0 d-flex align-items-center" role="search">
                                 <input type="search" class="form-control" placeholder="Buscar..." aria-label="Search"/>
                             </form>
+                            
                             <a class="btn text-white" href="#" role="button">Sign in</a>
                             <a class="btn btn-outline-light" href="#" role="button">Sign up</a>
-                            <button data-quantity="2" class="btn-cart">
+                            
+                            <button data-quantity="2" class="btn-cart" th:href="@{/user/cart/get-cart}">
                                 <svg class="icon-cart" viewBox="0 0 24.38 30.52" height="30.52" width="24.38" xmlns="http://www.w3.org/2000/svg">
                                     <title>icon-cart</title>
                                     <path transform="translate(-3.62 -0.85)" d="M28,27.3,26.24,7.51a.75.75,0,0,0-.76-.69h-3.7a6,6,0,0,0-12,0H6.13a.76.76,0,0,0-.76.69L3.62,27.3v.07a4.29,4.29,0,0,0,4.52,4H23.48a4.29,4.29,0,0,0,4.52-4ZM15.81,2.37a4.47,4.47,0,0,1,4.46,4.45H11.35a4.47,4.47,0,0,1,4.46-4.45Zm7.67,27.48H8.13a2.79,2.79,0,0,1-3-2.45L6.83,8.34h3V11a.76.76,0,0,0,1.52,0V8.34h8.92V11a.76.76,0,0,0,1.52,0V8.34h3L26.48,27.4a2.79,2.79,0,0,1-3,2.44Zm0,0"></path>
@@ -106,91 +105,7 @@
                 </div>
             </nav>
 
-
-            <!--<nav class=" navbar-dark bg-dark border-bottom ">
-                <div class="container d-flex flex-wrap">
-                    <ul class="nav me-auto">
-                        <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2 active" aria-current="page">Home</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Features</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Pricing</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">FAQs</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">About</a></li>
-                    </ul>
-                    <ul class="nav">
-                        <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Login</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Sign up</a></li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="py-3 mb-4 border-bottom navbar-dark bg-dark">
-                <div class="container d-flex flex-wrap justify-content-center align-items-center">
-                     Logo a la izquierda 
-                    <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
-                        <img src="/img/logobook.png" 
-                             width="97" 
-                             height="48" 
-                             class="align-middle me-1"
-                             alt="Logo"/>
-                    </a>
-            
-                     Entrada de búsqueda centrada 
-                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 d-flex align-items-center" role="search">
-                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-                    </form>
-                    
-                     Botón a la derecha 
-                    <button data-quantity="2" class="btn-cart">
-                        <svg class="icon-cart" viewBox="0 0 24.38 30.52" height="30.52" width="24.38" xmlns="http://www.w3.org/2000/svg">
-                            <title>icon-cart</title>
-                            <path transform="translate(-3.62 -0.85)" d="M28,27.3,26.24,7.51a.75.75,0,0,0-.76-.69h-3.7a6,6,0,0,0-12,0H6.13a.76.76,0,0,0-.76.69L3.62,27.3v.07a4.29,4.29,0,0,0,4.52,4H23.48a4.29,4.29,0,0,0,4.52-4ZM15.81,2.37a4.47,4.47,0,0,1,4.46,4.45H11.35a4.47,4.47,0,0,1,4.46-4.45Zm7.67,27.48H8.13a2.79,2.79,0,0,1-3-2.45L6.83,8.34h3V11a.76.76,0,0,0,1.52,0V8.34h8.92V11a.76.76,0,0,0,1.52,0V8.34h3L26.48,27.4a2.79,2.79,0,0,1-3,2.44Zm0,0"></path>
-                        </svg>
-                        <span class="quantity"></span>
-                    </button>
-                </div>
-            </div>-->
-
-            <!--<div class="p-3 text-bg-dark">
-                <div class="container">
-                  <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
-                        <img src="/img/logobook.png" 
-                             width="97" 
-                             height="48" 
-                             class="align-middle me-1"
-                             alt="Logo"/>
-                    </a>
-            
-                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                      <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-                      <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-                      <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-                      <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-                      <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-                    </ul>
-            
-                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                      <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
-                    </form>
-            
-                    <div class="text-end">
-                      <button type="button" class="btn btn-outline-light me-2">Login</button>
-                      <button type="button" class="btn btn-warning">Sign-up</button>
-                    </div>
-                  </div>
-                </div>
-              </div>-->
-
         </header>
-
-
-
-
-
-
-
-
-
-
-
 
         <!--FIN DEL HEADER-->
 

@@ -29,7 +29,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User findByEmail(String email) {
-        return userMapper.toUser(userCrudRepository.findByEmail(email).get());
+        return userMapper.toUser(userCrudRepository.findByEmail(email).get());//.get para establecer que es un tipo de entidad
     }
 
     @Override

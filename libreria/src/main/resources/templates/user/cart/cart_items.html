@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:insert="~{layout/plantilla :: head}">
+        <title>Storybound Books</title>
+    </head>
+    <body>
+        <div th:insert="~{user/template_user::header_User}"></div>
+        <section class="bg-light">
+            <div class="container pb-3">
+                <div class="p-5 lc-block">
+
+                    <div class="lc-block">
+                        <div>
+                            <h2 class="fw-bolder display-3">Storybound Books.
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="lc-block col-md-8">
+                        <div>
+                            <p class="lead">Carrito de compras.</p>
+                        </div>
+                    </div>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a th:href="@{/admin}">Inicio</a></li>
+                        <li class="breadcrumb-item active">Agregar Libro</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="container mt-1 pb-5">
+                <div class="row">
+                    <div class="col-md-8">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <!-- <th scope="col">Imagen</th>-->
+                                    <th scope="col">Título</th>
+                                    <!-- <th scope="col">Autor</th>-->
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr th:each="item: ${cart}">
+                                    <!--                                    <td><img th:src="@{/images/{img} (img = ${product.image})}" alt="Portada del libro"/></td>-->
+                                    <td th:text="${item.nameProduct}"></td>
+                                    <td th:text="${item.quantity}"></td>
+                                    <td th:text="'₡ ' + ${#numbers.formatDecimal(item.price, 0, 'COMMA', 2, 'POINT')}"></td>
+                                    <td th:text="'₡ ' + ${#numbers.formatDecimal(item.getTotalPriceItem(), 0, 'COMMA', 2, 'POINT')}"></td>
+                                    <td>
+                                        <a class="delete_button" th:href="@{/user/cart/delete-item-cart/{id} (id = ${item.idProduct})}" type="button">
+                                            <span class="delete_button__text">Delete</span>
+                                            <span class="delete_button__icon">
+                                                <svg class="delete_svg" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg">
+                                                    <title></title>
+                                                    <path d="M112,112l20,320c.95,18.49,14.4,32,32,32H348c17.67,0,30.87-13.51,32-32l20-320" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path>
+                                                    <line style="stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px" x1="80" x2="432" y1="112" y2="112"></line>
+                                                    <path d="M192,112V72h0a23.93,23.93,0,0,1,24-24h80a23.93,23.93,0,0,1,24,24h0v40" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path>
+                                                    <line style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" x1="256" x2="256" y1="176" y2="400"></line>
+                                                    <line style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" x1="184" x2="192" y1="176" y2="400"></line>
+                                                    <line style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" x1="328" x2="320" y1="176" y2="400"></line>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- Cuadro con el total y botón de compra -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Total:</h5>
+                                <!-- Agrega aquí la lógica para calcular el total -->
+                                <p class="card-text fs-1 fw-bold" id="totalAmount" th:text="'₡ ' + ${#numbers.formatDecimal(total, 0, 'COMMA', 2, 'POINT')}"></p>
+                                
+                                <a class="Btn" th:href="@{/user/order/buy-product}">
+                                   
+                                    Comprar
+                                    <svg class="svgIcon" viewBox="0 0 576 512">
+                                        <path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path>
+                                    </svg>
+                                   
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <div th:insert="~{layout/plantilla.html::footer}"></div>
+    </body>
+</html>
