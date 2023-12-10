@@ -26,7 +26,6 @@ public interface UserMapper {
 
 
     User toUser(UserEntity userEntity);
-
     Iterable<User> toUsers (Iterable<UserEntity> userEntities);
 
     @InheritInverseConfiguration

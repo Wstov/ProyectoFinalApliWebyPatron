@@ -1,13 +1,12 @@
 package com.libreria.application.service;
 
-
 import com.libreria.application.repository.ProductRepository;
 import com.libreria.domain.Product;
 import com.libreria.domain.User;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import org.springframework.web.multipart.MultipartFile;
-
 
 public class ProductService {
 
@@ -18,42 +17,42 @@ public class ProductService {
         this.productRepository = productRepository;
         this.uploadFile = uploadFile;
     }
- 
-    public Iterable<Product> getProducts(){
+
+    public Iterable<Product> getProducts() {
         return productRepository.getProducts();
     }
 
-    public Iterable<Product> getProductsByUser(User user){
+    public Iterable<Product> getProductsByUser(User user) {
         return productRepository.getProductsByUser(user);
     }
 
-    public Product getProductById(Integer id){
+    public Product getProductById(Integer id) {
         return productRepository.getProductById(id);
     }
-    
 
 //    GUARDAR Y ACTUALIZAR LA INFORMACION DE LOS LIBROS
-    public Product saveProduct(Product product, MultipartFile multipartFile) throws IOException {
+    public Product saveProduct(Product product, MultipartFile multipartFile, HttpSession httpSession) throws IOException {
+        
         if (product.getId() == null) {
             User user = new User();
-            user.setId(1);
+            user.setId(Integer.parseInt(httpSession.getAttribute("iduser").toString()));
             product.setDateCreated(LocalDateTime.now());
             product.setDateUpdated(LocalDateTime.now());
             product.setUser(user);
             product.setImage(uploadFile.upload(multipartFile)); //Guarda el nombre de la imagen que sube el usuario
-            
+
             return productRepository.saveProduct(product);
-        
-        }else{
-            Product productDB= productRepository.getProductById(product.getId());
-            if(multipartFile.isEmpty()){
+
+        } else {
+            Product productDB = productRepository.getProductById(product.getId());
+            if (multipartFile.isEmpty()) {
                 product.setImage(productDB.getImage());
-            }else{
+            } else {
                 // Guarda la imagen que se le envia actualmente
                 // Antes se elimina la imagen que no esta agregada por defecto
-                if (!productDB.getImage().equals("default.jpg")) { 
+                if (!productDB.getImage().equals("default.jpg")) {
                     uploadFile.delete(productDB.getImage());
-                } 
+                }
                 product.setImage(uploadFile.upload(multipartFile));
             }
             product.setCode(productDB.getCode());
@@ -64,7 +63,7 @@ public class ProductService {
         }
     }
 
-    public void deleteProductById(Integer id){
+    public void deleteProductById(Integer id) {
         productRepository.deleteProductById(id);
     }
 }

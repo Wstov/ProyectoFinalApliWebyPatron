@@ -6,7 +6,9 @@ package com.libreria.infrastructure.adapter;
 
 import com.libreria.application.repository.OrderRepository;
 import com.libreria.domain.Order;
+import com.libreria.domain.User;
 import com.libreria.infrastructure.mapper.OrderMapper;
+import com.libreria.infrastructure.mapper.UserMapper;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -17,10 +19,12 @@ import org.springframework.stereotype.Repository;
 public class OrderRepositoryImpl implements OrderRepository{
     private final OrderCrudRepository orderCrudRepository;
     private final OrderMapper orderMapper;
+    private final UserMapper userMapper;
 
-    public OrderRepositoryImpl(OrderCrudRepository orderCrudRepository, OrderMapper orderMapper) {
+    public OrderRepositoryImpl(OrderCrudRepository orderCrudRepository, OrderMapper orderMapper, UserMapper userMapper) {
         this.orderCrudRepository = orderCrudRepository;
         this.orderMapper = orderMapper;
+        this.userMapper = userMapper;
     }
      
     @Override
@@ -31,6 +35,11 @@ public class OrderRepositoryImpl implements OrderRepository{
     @Override
     public Iterable<Order> getOrders() {
         return orderMapper.toOrders(orderCrudRepository.findAll());
+    }
+
+    @Override
+    public Iterable<Order> getOrdersByUser(User user) {
+        return orderMapper.toOrders(orderCrudRepository.findByUser(userMapper.toUserEntity(user)));
     }
     
 }

@@ -5,6 +5,7 @@ package com.libreria.infrastructure.controller;
 import com.libreria.application.service.ProductService;
 import com.libreria.domain.Product;
 import com.libreria.domain.User;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -34,18 +35,20 @@ public class ProductController {
     
 //    Guardar los productos en la base de datos
     @PostMapping("/save-product")
-    public String saveProduct(Product product,@RequestParam("img") MultipartFile multipartFile) throws IOException{
+    public String saveProduct(Product product,@RequestParam("img") MultipartFile multipartFile, HttpSession httpSession) throws IOException{
         //log.info("Nombre de producto: {}", product);
-        productService.saveProduct(product, multipartFile);
+        productService.saveProduct(product, multipartFile, httpSession);
 //        return "admin/products/create";
         return "redirect:/admin/products/show";
     }
 
 //    Metodo para la pagina donde se muetran la lista de los productos o libros
     @GetMapping("/show")
-    public String showProduct(Model model){
+    public String showProduct(Model model, HttpSession httpSession){
+        log.info("id user desde la variable de session: {}",httpSession.getAttribute("iduser").toString());
+        
         User user = new User();
-        user.setId(1);
+        user.setId(Integer.parseInt(httpSession.getAttribute("iduser").toString()));
         Iterable<Product> products = productService.getProductsByUser(user);
         model.addAttribute("books", products);
         

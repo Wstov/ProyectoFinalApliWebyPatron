@@ -7,20 +7,22 @@ import com.libreria.application.repository.StockRepository;
 import com.libreria.application.repository.UserRepository;
 import com.libreria.application.service.CartService;
 import com.libreria.application.service.LoginService;
+import com.libreria.application.service.LogoutService;
 import com.libreria.application.service.OrderProductService;
 import com.libreria.application.service.OrderService;
 import com.libreria.application.service.ProductService;
 import com.libreria.application.service.RegistrationService;
 import com.libreria.application.service.StockService;
 import com.libreria.application.service.UploadFile;
+import com.libreria.application.service.UploadFileUser;
 import com.libreria.application.service.UserService;
 import com.libreria.application.service.ValidateStock;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.context.WebApplicationContext;
-
 
 
 @Configuration
@@ -35,6 +37,17 @@ public class BeanConfiguration {
         return new UploadFile();    
     }
     
+    //    ------------ se agrego uploadFileUser
+    @Bean
+    public UserService userService(UserRepository userRepository, UploadFileUser uploadFileUser){
+        return  new UserService(userRepository, uploadFileUser );
+    }
+    
+    @Bean
+    public UploadFileUser uploadFileUser(){
+        return new UploadFileUser();
+    }
+
     @Bean
     public StockService stockService(StockRepository stockRepository){
         return new StockService(stockRepository);
@@ -55,10 +68,6 @@ public class BeanConfiguration {
         return new OrderProductService(orderProductRepository);
     }
     
-    @Bean
-    public UserService userService(UserRepository userRepository){
-        return  new UserService(userRepository);
-    }
 
     @Bean
     @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)//corige el comportamiento por defecto de los beans que son singled
@@ -68,8 +77,8 @@ public class BeanConfiguration {
     }
     
     @Bean
-    public RegistrationService registrationService(UserService userService){
-        return new RegistrationService(userService);
+    public RegistrationService registrationService(UserService userService,PasswordEncoder passwordEncoder){
+        return new RegistrationService(userService, passwordEncoder);
     }
     
     @Bean 
@@ -77,7 +86,11 @@ public class BeanConfiguration {
         return new LoginService(userService);
     }
     
-
+    @Bean
+    public LogoutService logoutService(){
+        return new LogoutService();
+    
+    }
     
   
 }

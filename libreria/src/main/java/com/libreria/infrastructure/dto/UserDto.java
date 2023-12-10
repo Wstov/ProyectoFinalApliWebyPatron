@@ -38,9 +38,10 @@ public class UserDto {
     @NotBlank(message = "Calve es requerido")
     private String password;
     
+    private String image;
     
     public User userDtoToUser(){
-        return new User(null, this.getEmail(),this.getFirstName(),this.getLastName(),this.getEmail(),this.getAddress(),this.getCellphone(), this.getPassword(), UserType.USER, LocalDateTime.now());
+        return new User(null, this.getEmail(),this.getFirstName(),this.getLastName(),this.getEmail(),this.getAddress(),this.getCellphone(), this.getPassword(), UserType.USER, LocalDateTime.now(),this.getImage());
     }
 }
 

@@ -20,4 +20,8 @@ public class User {
     private String password;
     private UserType userType;
     private LocalDateTime dateCreated;
+    
+    // SE CREA IMAGEN NUEVO
+    private String image;
+
 }

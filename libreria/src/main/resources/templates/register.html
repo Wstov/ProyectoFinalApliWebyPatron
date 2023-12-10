@@ -7,7 +7,7 @@
     </head>
 
     <body>
-        <div th:insert="~{admin/template_admin.html::header}"></div>
+        <div th:insert="~{user/template_user::header_home}"></div>
         <section class="bg-light">
             <div class="container pb-5">
                 <div class="p-5 lc-block">
@@ -71,13 +71,20 @@
                             <p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-lg mt-5" style="width: 100%;">Guardar</button>
+                        <div class="form-group mb-4">
+                            <label for="imguser">Imagen de perfil:</label>
+                            <input name="imguser" type="file" class="form-control-file" id="imguser"/>
+                            <!--<p class="text-danger" th:if="${#fields.hasErrors('profilePicture')}" th:errors="*{profilePicture}"></p>-->
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary btn-lg mt-5" style="width: 100%;">Crear Usuario</button>
                     </form>
                 </div>
             </div>
         </section>
 
-        <div th:insert="~{layout/plantilla.html::footer}"></div>
+        <div th:insert="~{user/template_user::footer}"></div>
     </body>
 
 </html>

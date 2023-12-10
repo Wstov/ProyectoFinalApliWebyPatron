@@ -3,7 +3,6 @@ package com.libreria.infrastructure.adapter;
 import com.libreria.application.repository.ProductRepository;
 import com.libreria.domain.Product;
 import com.libreria.domain.User;
-import com.libreria.infrastructure.entity.ProductEntity;
 import com.libreria.infrastructure.mapper.ProductMapper;
 import com.libreria.infrastructure.mapper.UserMapper;
 import org.springframework.stereotype.Repository;

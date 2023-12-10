@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org"
       >
-    <head th:insert="~{layout/plantilla :: head}">
+    <head th:insert="~{user/template_user:: head}">
         <title>Storybound Books</title>
     </head>
     <body>
-        <div class="" th:insert="~{layout/plantilla.html::header}"></div>
+        <div th:insert="~{user/template_user::header_home}" th:if="${id==null}"></div>
+        <div th:insert="~{user/template_user::header_User}" th:unless="${id==null}"></div>
+        
         <main class="pt-5 container-fluid">
             <section class="d-flex align-items-center min-vh-50">
                 <div class="container text-center mb-md-5">
@@ -146,6 +144,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </section>
 
         </main>
-        <div th:insert="~{layout/plantilla.html::footer}"></div>
+        <div th:insert="~{user/template_user::footer}"></div>
     </body>
 </html>

@@ -28,4 +28,9 @@ public class UserEntity {
     private UserType userType;
     private LocalDateTime dateCreated;
 
+    // SE CREA IMAGEN NUEVO
+    private String image;
+
+    
+
 }

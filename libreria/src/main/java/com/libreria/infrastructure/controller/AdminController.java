@@ -4,6 +4,7 @@ package com.libreria.infrastructure.controller;
 import com.libreria.application.service.ProductService;
 import com.libreria.domain.Product;
 import com.libreria.domain.User;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,9 +22,9 @@ public class AdminController {
     
     
     @GetMapping
-    public String home(Model model){
+    public String home(Model model, HttpSession httpSession){
         User user = new User();
-        user.setId(1);
+        user.setId(Integer.parseInt(httpSession.getAttribute("iduser").toString()));
         Iterable<Product> products = productService.getProductsByUser(user);
         model.addAttribute("books", products);
         

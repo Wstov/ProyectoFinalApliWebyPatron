@@ -359,3 +359,23 @@
   transition-duration: .3s;
 }
 /*END BOTON DE PAGO*/
+
+.registroLink{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*REGISTRO IMAGEN USUARIO*/
+.profile-picture-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-picture-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto asegura que la imagen se ajuste correctamente al contenedor circular */
+}
+/*END REGISTRO IMAGEN USUARIO*/

@@ -5,6 +5,7 @@
 package com.libreria.infrastructure.controller;
 
 import com.libreria.application.service.CartService;
+import jakarta.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -44,10 +45,11 @@ public class CartController {
     }
 
     @GetMapping("/get-cart")
-    public String getCart(Model model){
+    public String getCart(Model model, HttpSession httpSession){
         showCart();
         model.addAttribute("cart", cartService.getItemCarts());
         model.addAttribute("total", cartService.getTotalCart());
+        model.addAttribute("id", Integer.parseInt(httpSession.getAttribute("iduser").toString()));
         return "/user/cart/cart_items";
                 
     }

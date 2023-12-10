@@ -21,10 +21,7 @@ public interface OrderMapper {
             {
                 @Mapping(source = "id", target = "id"),
                 @Mapping(source = "dateCreated", target = "dateCreated"),
-                @Mapping(source = "addressTow", target = "addressTow"),
-                @Mapping(source = "country", target = "country"),
-                @Mapping(source = "state", target = "state"),
-                @Mapping(source = "zip", target = "zip")
+                @Mapping(source = "user", target = "user")
     
             }
     )

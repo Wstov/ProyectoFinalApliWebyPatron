@@ -3,12 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org"
       >
-    <head th:replace="~{layout/plantilla :: head}">
+    <head th:insert="~{user/template_user:: head}">
         <title>Storybound Books</title>
     </head>
-
     <body>
-        <div th:insert="~{layout/plantilla.html::header}"></div>
+        <div th:insert="~{user/template_user::header_home}" th:if="${id==null}"></div>
+        <div th:insert="~{user/template_user::header_User}" th:unless="${id==null}"></div>
+        
 
         <main th:fragment="nosotros">
             <section class="py-4">
@@ -188,7 +189,7 @@
 
 
         </main>
-        <div th:insert="~{layout/plantilla.html::footer}"></div>
+        <div th:insert="~{user/template_user::footer}"></div>
     </body>
 
 </html>

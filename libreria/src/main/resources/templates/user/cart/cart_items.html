@@ -6,7 +6,10 @@
         <title>Storybound Books</title>
     </head>
     <body>
-        <div th:insert="~{user/template_user::header_User}"></div>
+        <div th:insert="~{user/template_user::header}" th:if="${id==null}"></div>
+        
+        <div th:insert="~{user/template_user::header_User}" th:unless="${id==null}"></div>
+        
         <section class="bg-light">
             <div class="container pb-3">
                 <div class="p-5 lc-block">
@@ -96,6 +99,6 @@
             </div>
 
         </section>
-        <div th:insert="~{layout/plantilla.html::footer}"></div>
+        <div th:insert="~{user/template_user::footer}"></div>
     </body>
 </html>

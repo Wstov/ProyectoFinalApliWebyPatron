@@ -3,11 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org"
       >
-    <head th:replace="~{layout/plantilla :: head}">
+    <head th:insert="~{user/template_user:: head}">
         <title>Storybound Books</title>
     </head>
     <body>
-        <div th:insert="~{layout/plantilla.html::header}"></div>
+        <div th:insert="~{user/template_user::header_home}" th:if="${id_user==null}"></div>
+        <div th:insert="~{user/template_user::header_User}" th:unless="${id_user==null}"></div>
+        
         <main>
             <section th:fragment="hero">
                 <div class="container">
@@ -72,17 +74,6 @@
                                     <p class="text_buy">Add to Cart</p>
                                 </button>
 
-<!--                                <button type="submit" class="button_buy">
-                                    <a class="button-wrapper">
-                                        <a class="text_buy">Agregar al Carrito</a>
-                                        <span class="icon_buy">
-                                            <svg viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </button>-->
-
                             </form>
                         </div>
                         <!-- Nuevo div a la derecha -->
@@ -132,7 +123,7 @@
 
         </main>
 
-        <div th:insert="~{layout/plantilla.html::footer}"></div>
+        <div th:insert="~{user/template_user::footer}"></div>
     </body>
 
 </html>
