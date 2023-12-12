@@ -2,7 +2,9 @@ package com.libreria.infrastructure.configuration;
 
 import com.libreria.application.repository.OrderProductRepository;
 import com.libreria.application.repository.OrderRepository;
+import com.libreria.application.repository.PaymentRepository;
 import com.libreria.application.repository.ProductRepository;
+import com.libreria.application.repository.ShippingAddressRepository;
 import com.libreria.application.repository.StockRepository;
 import com.libreria.application.repository.UserRepository;
 import com.libreria.application.service.CartService;
@@ -10,13 +12,16 @@ import com.libreria.application.service.LoginService;
 import com.libreria.application.service.LogoutService;
 import com.libreria.application.service.OrderProductService;
 import com.libreria.application.service.OrderService;
+import com.libreria.application.service.PaymentService;
 import com.libreria.application.service.ProductService;
 import com.libreria.application.service.RegistrationService;
+import com.libreria.application.service.ShippingAddressService;
 import com.libreria.application.service.StockService;
 import com.libreria.application.service.UploadFile;
 import com.libreria.application.service.UploadFileUser;
 import com.libreria.application.service.UserService;
 import com.libreria.application.service.ValidateStock;
+import com.libreria.domain.ShippingAddress;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -92,5 +97,16 @@ public class BeanConfiguration {
     
     }
     
-  
+    @Bean
+    public PaymentService paymentService(PaymentRepository paymentRepository) {
+        return new PaymentService(paymentRepository );
+        
+    }
+
+    @Bean
+    public ShippingAddressService shippingAddressService(ShippingAddressRepository shippingAddressRepository) {
+        return new ShippingAddressService(shippingAddressRepository);
+    }
+    
+
 }

@@ -15,13 +15,16 @@ import org.mapstruct.Mappings;
  *
  * @author Wstov
  */
-@Mapper(componentModel = "spring", uses = {UserMapper.class})
+@Mapper(componentModel = "spring", uses = {UserMapper.class, PaymentMapper.class, ShippingAddressMapper.class})
 public interface OrderMapper {
     @Mappings(
             {
                 @Mapping(source = "id", target = "id"),
                 @Mapping(source = "dateCreated", target = "dateCreated"),
-                @Mapping(source = "user", target = "user")
+                @Mapping(source = "user", target = "user"),
+                @Mapping(source = "paymentEntity", target = "payment"),
+                @Mapping(source = "shippingAddressEntity", target = "shippingAddress")
+                
     
             }
     )

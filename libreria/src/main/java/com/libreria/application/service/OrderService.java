@@ -6,6 +6,8 @@ package com.libreria.application.service;
 
 import com.libreria.application.repository.OrderRepository;
 import com.libreria.domain.Order;
+import com.libreria.domain.Payment;
+import com.libreria.domain.ShippingAddress;
 import com.libreria.domain.User;
 
 /**
@@ -30,5 +32,13 @@ public class OrderService {
     
     public Iterable<Order> getOrdersByUser(User user){
         return orderRepository.getOrdersByUser(user);
+    }
+    
+    public Iterable<Order> getAddressById(ShippingAddress shippingAddress){
+        return orderRepository.getAddressById(shippingAddress);
+    }
+    
+    public Iterable<Order> getPaymentMothodByUser(Payment payment){
+        return orderRepository.getPaymentMothodByUser(payment);
     }
 }

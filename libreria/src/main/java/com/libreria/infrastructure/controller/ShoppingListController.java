@@ -48,8 +48,11 @@ public class ShoppingListController {
             newListOrder.add(getOrdersProducts(order));
             
         }
-        model.addAttribute("id",Integer.parseInt(httpSession.getAttribute("iduser").toString()));
+        model.addAttribute("id", Integer.parseInt(httpSession.getAttribute("iduser").toString()));
         model.addAttribute("orders", newListOrder);
+        model.addAttribute("user", user);
+
+
         
         return "user/shoppinglist";
     }

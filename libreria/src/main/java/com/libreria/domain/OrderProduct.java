@@ -20,6 +20,7 @@ public class OrderProduct {
         this.order = order;
     }
     
+    //calcular el monto total de la orden
     public BigDecimal getTotalPrice(){
         return this.product.getPrice().multiply(BigDecimal.valueOf(quantity));
         

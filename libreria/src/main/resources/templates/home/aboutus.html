@@ -7,8 +7,8 @@
         <title>Storybound Books</title>
     </head>
     <body>
-        <div th:insert="~{user/template_user::header_home}" th:if="${id==null}"></div>
-        <div th:insert="~{user/template_user::header_User}" th:unless="${id==null}"></div>
+        <div th:insert="~{user/template_user::header_home}" th:if="${user==null}"></div>
+        <div th:insert="~{user/template_user::header_User(usuario=${user})}" th:unless="${user==null}"></div>
         
 
         <main th:fragment="nosotros">
@@ -19,7 +19,7 @@
                             <div class="lc-block">
                                 <div>
 
-                                    <p class="lead fw-bold text-primary">About us</p>
+                                    <p class="lead fw-bold text-primary">Nuestra Compañía</p>
 
                                     <h2 class="fw-bold display-3">Storybound Books</h2>
 
@@ -90,8 +90,8 @@
                             </div>
 
                             <div class="lc-block">
-                                <span class="display-4"><b class="fw-bold">274</b></span>
-                                <div>Customers</div>
+                                <span class="display-4"><b class="fw-bold">6546</b></span>
+                                <div>Clientes</div>
                             </div>
                         </div>
                         <div class="col-lg-4 mb-5 mb-lg-0 text-center">
@@ -109,7 +109,7 @@
                             <div class="lc-block">
                                 <span class="display-4"><b class="fw-bold">1.244</b></span>
                                 <div>
-                                    <p>Hours</p>
+                                    <p>Ejemplares</p>
                                 </div>
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                             </div>
                             <div class="lc-block">
                                 <span class="display-4"><b class="fw-bold">+AAA</b></span>
-                                <div>Value</div>
+                                <div>Valoraciones</div>
                             </div>
                         </div>
                     </div>
@@ -139,7 +139,7 @@
                             <div class="lc-block overflow-hidden">
                                 <div style="max-height:40vh" class="ratio ratio-1x1" data-lc-helper="gmap-embed">
                                     <iframe
-                                        src="https://maps.google.com/maps?q=1%20Hacker%20Way%2C%20Menlo%20Park%2C%20CA%2094025%2C%20United%20states&amp;t=m&amp;z=12&amp;output=embed&amp;iwloc=near"></iframe>
+                                        src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d62879.905859948085!2d-84.07920394299444!3d9.934446873720981!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2scr!4v1702245152217!5m2!1ses!2scr"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -156,15 +156,14 @@
                         <div class="col-lg-9 col-xl-8 text-center bg-dark text-white p-5">
                             <div class="lc-block mb-4">
                                 <div>
-                                    <h2 class="display-3 fw-bolder">Reach us</h2>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do<br>&nbsp;eiusmod tempor
-                                            incididunt ut labore et dolore magna aliqua.&nbsp;</p>
+                                    <h2 class="display-3 fw-bolder">Encuentranos</h2>
+                                    <p>Encuentranos! Estamos ubicados en todo el país.</p>
 
                                 </div>
                             </div><!-- /lc-block -->
                             <div class="lc-block mb-5">
-                                <a class="btn btn-lg btn-light" href="https://goo.gl/maps/zy3NkDKV3x4iyUkL9"
-                                   role="button">VIEW MAP</a>
+                                <a class="btn btn-lg btn-light" href="https://maps.app.goo.gl/Ac9CMgoJbB7VG1Qd9"
+                                   role="button">VER MAPA</a>
                             </div><!-- /lc-block -->
                             <div class="lc-block border-top col-md-6 offset-md-3">
                                 <div editable="rich">
@@ -173,13 +172,13 @@
                             </div>
                             <div class="lc-block mb-4">
                                 <div editable="rich">
-                                    <h2 class="fw-bolder">Working Hours</h2>
+                                    <h2 class="fw-bolder">Horario</h2>
                                 </div>
                             </div>
                             <div class="lc-block">
                                 <div editable="rich">
-                                    <p>Monday to Friday: 07:00 – 19:45</p>
-                                    <p>Saturday to Sunday: 11:00 – 17:00</p>
+                                    <p>Lunes a Viernes 07:00 – 19:45</p>
+                                    <p>Sabados y Domingos: 11:00 – 17:00</p>
                                 </div>
                             </div><!-- /lc-block -->
                         </div><!-- /col -->

@@ -8,7 +8,7 @@
     </head>
 
     <body>
-        <div th:insert="~{admin/template_admin.html::header}"></div>
+        <div th:insert="~{admin/template_admin::header}"></div>
         <section class="bg-light">
             <div class="container pb-5">
                 <div class="p-5 lc-block">
@@ -31,26 +31,20 @@
                 </div>
                 <div class="p-5 lc-block shadow rounded-3 col-xl-10 offset-xl-1">
 
-                    <form class="form-horizontal" th:action="@{/admin/products/save-product}" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" th:action="@{/admin/products/save-product}" method="POST" enctype="multipart/form-data">
 
                         <div class="form-group mb-4">
                             <label for="name">Nombre del Libro:</label>
-                            <!--                            <input name="mouseglue" type="text" class="form-control"  placeholder="Ingrese el nombre del libro" value=""
-                                                               autocomplete="off" hidden="" />-->
                             <input name="name" type="text" class="form-control" id="name" placeholder="Ingrese el nombre del libro" value=""/>
                         </div>
 
                         <div class="form-group mb-4">
                             <label for="autor">Autor:</label>
-                            <!--                            <input name="autor" type="text" class="form-control" placeholder="Ingrese el autor del libro" value=""
-                                                               autocomplete="off" hidden=""/>-->
                             <input name="autor" type="text" class="form-control" id="autor" placeholder="Ingrese el autor del libro" value=""/>
                         </div>
 
                         <div class="form-group mb-4">
                             <label for="editorial">Editorial:</label>
-                            <!--                            <input name="autor" type="text" class="form-control" placeholder="Ingrese el autor del libro" value=""
-                                                               autocomplete="off" hidden=""/>-->
                             <input name="editorial" type="text" class="form-control" id="editorial" placeholder="Nombre de la Editorial" value=""/>
                         </div>
 
@@ -79,15 +73,11 @@
 
                         <div class="form-group mb-4">
                             <label for="formato">Formato:</label>
-                            <!--                            <input name="formato" type="text" class="form-control" id="formato" placeholder="Ingrese el formato en el que esta el libro" value=""
-                                                               autocomplete="off" hidden=""/>-->
                             <input name="formato" type="text" class="form-control" id="formato" placeholder="Ingrese el formato en el que esta el libro" value=""/>
                         </div>
 
                         <div class="form-group mb-4">
                             <label for="publicacion">Año de Publicación:</label>
-                            <!--                            <input name="publicacion" type="text" class="form-control" id="publicacion" placeholder="Ingrese un año de publicación del libro" value=""
-                                                               autocomplete="off" hidden=""/>-->
                             <input name="publicacion" type="text" class="form-control" id="publicacion" placeholder="Ingrese  un año de publicación del libro" value=""/>
                         </div>
 
@@ -115,13 +105,12 @@
                             <input name="price" type="number" class="form-control" id="price" placeholder="Ingrese un precio para el libro" value=""/>
                         </div>
 
-
-                        <div class="row d-flex justify-content-between mt-4">
+                        <div class="row align-items-center justify-content-between mt-4">
                             <!-- Columna para el input de imagen -->
                             <div class="col-sm-auto">
                                 <div class="form-group">
-                                    <label class="control-label" for="img">Imagen:</label>
-                                    <input type="file" class="form-control-file" id="img" name="img"/>
+                                    <label for="img" class="form-label">Subir Imagen:</label>
+                                    <input class="form-control" type="file" id="img" name="img"/>
                                 </div>
                             </div>
 
@@ -130,18 +119,19 @@
                                 <div class="form-check form-switch">
                                     <input class="form-check-input mr-3" type="checkbox" role="switch" id="highlight" name="highlight" />
                                     <input type="hidden" name="highlight" value="false" />
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Destacar Producto</label>
+                                    <label class="form-check-label" for="highlight">Destacar Producto</label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-sm-auto"> 
                                 <div class="form-check form-switch">
                                     <input class="form-check-input mr-3" type="checkbox" role="switch" id="offer" name="offer" />
                                     <input type="hidden" name="offer" value="false" />
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Producto en Oferta</label>
+                                    <label class="form-check-label" for="offer">Producto en Oferta</label>
                                 </div>
                             </div>
                         </div>
+
 
                         <button type="submit" class="btn btn-primary btn-lg mt-5" style="width: 100%;">Guardar</button>
                     </form>
@@ -149,7 +139,7 @@
             </div>
         </section>
 
-        <div th:insert="~{user/template_user::footer}"></div>
+        <div th:insert="~{admin/template_admin::footer}"></div>
 
         <!--        <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
                 <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>-->

@@ -18,6 +18,7 @@ import org.mapstruct.Mappings;
  */
 @Mapper(componentModel = "spring", uses = {ProductMapper.class, OrderMapper.class})
 public interface OrderProductMapper {
+    
     @Mappings(
             {
                 @Mapping(source = "pk.productEntity", target = "product"),

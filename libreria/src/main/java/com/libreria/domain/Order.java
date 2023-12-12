@@ -17,6 +17,9 @@ public class Order {
     private LocalDateTime dateCreated;
     private List<OrderProduct> orderProduct;
     private User user;
+    
+    private Payment payment;
+    private ShippingAddress shippingAddress;
  
     
     

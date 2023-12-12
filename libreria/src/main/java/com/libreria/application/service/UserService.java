@@ -24,9 +24,7 @@ public class UserService {
     
     // IMPLEMENTA IMAGEN
     public User createUser(User user, MultipartFile multipartFile) throws IOException{
-
         user.setImage(uploadFileUser.upload(multipartFile));
-
         return userRepository.createUser(user);
     }
     

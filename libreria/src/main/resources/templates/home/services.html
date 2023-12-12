@@ -6,8 +6,8 @@
         <title>Storybound Books</title>
     </head>
     <body>
-        <div th:insert="~{user/template_user::header_home}" th:if="${id==null}"></div>
-        <div th:insert="~{user/template_user::header_User}" th:unless="${id==null}"></div>
+        <div th:insert="~{user/template_user::header_home}" th:if="${user==null}"></div>
+        <div th:insert="~{user/template_user::header_User(usuario=${user})}" th:unless="${user==null}"></div>
         
         <main class="pt-5 container-fluid">
             <section class="d-flex align-items-center min-vh-50">

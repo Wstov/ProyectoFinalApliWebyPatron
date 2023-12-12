@@ -1,10 +1,12 @@
 
 package com.libreria.infrastructure.entity;
 
+import com.libreria.domain.Payment;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
@@ -26,9 +28,13 @@ public class OrderEntity {
     private LocalDateTime dateCreated;
     @ManyToOne
     private UserEntity user;
-    private String addressTow;
-    private String country;
-    private String state;
-    private String zip;
+    
+    @ManyToOne
+    @JoinColumn(name = "payment_method_id")
+    private PaymentEntity paymentEntity;
+    
+    @ManyToOne
+    @JoinColumn(name = "shipping_address_id")
+    private ShippingAddressEntity shippingAddressEntity;
     
 }

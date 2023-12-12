@@ -6,9 +6,8 @@
         <title>Storybound Books</title>
     </head>
     <body>
-        <div th:insert="~{user/template_user::header}" th:if="${id==null}"></div>
-        
-        <div th:insert="~{user/template_user::header_User}" th:unless="${id==null}"></div>
+        <div th:insert="~{user/template_user::header_home}" th:if="${user==null}"></div>
+        <div th:insert="~{user/template_user::header_User(usuario=${user})}" th:unless="${user==null}"></div>
         
         <section class="bg-light">
             <div class="container pb-3">
@@ -22,12 +21,12 @@
                     </div>
                     <div class="lc-block col-md-8">
                         <div>
-                            <p class="lead">Carrito de compras.</p>
+                            <p class="lead">Lista de productos agregados</p>
                         </div>
                     </div>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a th:href="@{/admin}">Inicio</a></li>
-                        <li class="breadcrumb-item active">Agregar Libro</li>
+                        <li class="breadcrumb-item active">Carrito de compras</li>
                     </ol>
                 </div>
             </div>
@@ -86,7 +85,7 @@
                                 
                                 <a class="Btn" th:href="@{/user/order/buy-product}">
                                    
-                                    Comprar
+                                    Finalizar Comprar
                                     <svg class="svgIcon" viewBox="0 0 576 512">
                                         <path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path>
                                     </svg>

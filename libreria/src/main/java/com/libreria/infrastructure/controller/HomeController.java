@@ -37,7 +37,7 @@ public class HomeController {
         try {
 //            model.addAttribute("id", httpSession.getAttribute("iduser").toString());
             User user = userService.findById(Integer.parseInt(httpSession.getAttribute("iduser").toString()));
-            log.info("******lA IMAGEN ES LA SIGUIENTE*****: {}", user.getImage());
+//            log.info("******lA IMAGEN ES LA SIGUIENTE*****: {}", user.getImage());
             model.addAttribute("user", user);
             
         } catch (Exception e) {
@@ -54,38 +54,24 @@ public class HomeController {
         model.addAttribute("showBook", product); // con model.addAttribute se pasa el model a la vista.
         model.addAttribute("booksGenders", productService.getProducts());
         try {
-            model.addAttribute("id_user", httpSession.getAttribute("iduser").toString());
+            User user = userService.findById(Integer.parseInt(httpSession.getAttribute("iduser").toString()));
+            model.addAttribute("user", user);
+
         } catch (Exception e) {
 
         }
         return "/home/showBook";
     }
 
-    @GetMapping("/product-detail/{id}")
-    public String productDetail(@PathVariable Integer id, Model model, HttpSession httpSession) {
-        List<Stock> stocks = stockService.getStockByProduct(productService.getProductById(id));
-        log.info("Id product: {}", id);
-        log.info("stock size: {}", stocks.size());
-        Integer lastBalance = stocks.get(stocks.size() - 1).getBalance();
-
-        model.addAttribute("product", productService.getProductById(id));
-        model.addAttribute("stock", lastBalance);
-        try {
-            model.addAttribute("id", httpSession.getAttribute("iduser").toString());
-
-        } catch (Exception e) {
-
-        }
-        return "user/productdetail";
-    }
     
     
 //    Route de NOSOTROS
     @GetMapping("/aboutus")
     public String aboutus(Model model, HttpSession httpSession) {
         try {
-            model.addAttribute("id", httpSession.getAttribute("iduser").toString());
-
+            User user = userService.findById(Integer.parseInt(httpSession.getAttribute("iduser").toString()));
+            model.addAttribute("user", user);
+            
         } catch (Exception e) {
 
         }
@@ -95,9 +81,10 @@ public class HomeController {
     //    Route de SERVICIOS
     @GetMapping("/services")
     public String services(Model model, HttpSession httpSession) {
-        try {
-            model.addAttribute("id", httpSession.getAttribute("iduser").toString());
-
+         try {
+            User user = userService.findById(Integer.parseInt(httpSession.getAttribute("iduser").toString()));
+            model.addAttribute("user", user);
+            
         } catch (Exception e) {
 
         }
@@ -108,8 +95,9 @@ public class HomeController {
     @GetMapping("/contact")
     public String contact(Model model, HttpSession httpSession) {
         try {
-            model.addAttribute("id", httpSession.getAttribute("iduser").toString());
-
+            User user = userService.findById(Integer.parseInt(httpSession.getAttribute("iduser").toString()));
+            model.addAttribute("user", user);
+            
         } catch (Exception e) {
 
         }

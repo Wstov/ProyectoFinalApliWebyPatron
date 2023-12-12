@@ -12,9 +12,14 @@
             <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
                 <div class="container">
                     <a class="navbar-brand" th:href="@{/admin}">
-                        <img src="/img/logobook.png" width="97" height="48" class="align-middle me-1" alt="Logo"/></a>
+                        <img src="/img/logobook.png" 
+                             width="117" 
+                             height="62" 
+                             class="align-middle me-1"
+                             alt="Logo"/>
+                    </a>
 
-                    <<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -45,6 +50,7 @@
                                                 <li><a class="dropdown-item" th:href="@{/admin}">Incio</a></li>
                                                 <li><a class="dropdown-item" th:href="@{/admin/products/create}">Agregar Libro</a></li>
                                                 <li><a class="dropdown-item" th:href="@{/admin/products/show}">Lista de Productos</a></li>
+<!--                                                <li><a class="dropdown-item" th:href="@{/reportes/usuarios?tipo=vPdf}" th:disabled="">Generar Lista de Usuarios</a></li>-->
                                                 <li><a class="dropdown-item" th:href="@{/logout}">Salir</a></li>
                                             </ul>
                             
@@ -55,5 +61,36 @@
             </nav>
         </header>
         <!--FIN DEL HEADER-->
+                <!--FOOTER ADMIN-->
+        <footer th:fragment="footer">
+    <section class="bg-dark text-light">
+        <div class="container py-6">
+            <div class="lc-block d-flex flex-wrap justify-content-between align-items-center py-3 mx-3 border-top">
+                <div class="col-md-4">
+                    <div editable="rich">
+                        <p> Copyright © Storybound Books 2023</p>
+                    </div>
+                </div><!-- /lc-block -->
+                <div class="d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto col-md-4">
+                    <div class="lc-block text-center">
+                        <a class="navbar-brand" th:href="@{/admin}">
+                            <img class="img-fluid me-1" src="/img/logobook.png" alt="logo" width="120px" height="120px">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 navbar-expand-md">
+                    <div lc-helper="shortcode" class="live-shortcode"> <!--  lc_nav_menu -->
+                        <ul id="menu-menu-1" class="navbar-nav me-auto mb-2 mb-md-0 flex-wrap justify-content-end gap-3">
+                            <li><a class="dropdown-item" th:href="@{/admin}">Incio</a></li>
+                            <li><a class="dropdown-item" th:href="@{/admin/products/create}">Agregar Libro</a></li>
+                            <li><a class="dropdown-item" th:href="@{/admin/products/show}">Lista de Productos</a></li>
+                        </ul> <!-- /lc_nav_menu -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        </footer>
     </body>
 </html>

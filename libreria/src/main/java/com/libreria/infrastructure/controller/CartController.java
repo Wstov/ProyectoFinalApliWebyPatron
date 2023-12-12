@@ -5,6 +5,8 @@
 package com.libreria.infrastructure.controller;
 
 import com.libreria.application.service.CartService;
+import com.libreria.application.service.UserService;
+import com.libreria.domain.User;
 import jakarta.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import lombok.extern.slf4j.Slf4j;
@@ -25,11 +27,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Slf4j
 public class CartController {
     private final CartService cartService;
+    private final UserService userService;
 
-    public CartController(CartService cartService) {
+    public CartController(CartService cartService, UserService userService) {
         this.cartService = cartService;
+        this.userService = userService;
     }
-    
+
+
     @PostMapping("/add-product")
     public String addProductCart(@RequestParam Integer quantity, @RequestParam Integer idProduct, @RequestParam String nameProduct, @RequestParam BigDecimal price){
         cartService.addItemCart(quantity, idProduct, nameProduct, price);
@@ -49,7 +54,13 @@ public class CartController {
         showCart();
         model.addAttribute("cart", cartService.getItemCarts());
         model.addAttribute("total", cartService.getTotalCart());
-        model.addAttribute("id", Integer.parseInt(httpSession.getAttribute("iduser").toString()));
+        try {
+            User user = userService.findById(Integer.parseInt(httpSession.getAttribute("iduser").toString()));
+            model.addAttribute("user", user);
+            
+        } catch (Exception e) {
+
+        }
         return "/user/cart/cart_items";
                 
     }

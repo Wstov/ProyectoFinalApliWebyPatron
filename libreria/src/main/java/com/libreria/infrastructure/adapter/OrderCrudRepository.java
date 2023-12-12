@@ -5,6 +5,8 @@
 package com.libreria.infrastructure.adapter;
 
 import com.libreria.infrastructure.entity.OrderEntity;
+import com.libreria.infrastructure.entity.PaymentEntity;
+import com.libreria.infrastructure.entity.ShippingAddressEntity;
 import com.libreria.infrastructure.entity.UserEntity;
 import org.springframework.data.repository.CrudRepository;
 
@@ -16,4 +18,8 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface OrderCrudRepository extends CrudRepository<OrderEntity, Integer>{
     public Iterable<OrderEntity> findByUser(UserEntity userEntity);
+    public Iterable<OrderEntity> findByShippingAddressEntity(ShippingAddressEntity shippingAddressEntity);
+    public Iterable<OrderEntity> findByPaymentEntity(PaymentEntity paymentEntity);
 }
+
+

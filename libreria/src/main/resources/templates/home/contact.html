@@ -6,8 +6,8 @@
         <title>Storybound Books</title>
     </head>
     <body>
-        <div th:insert="~{user/template_user::header_home}" th:if="${id==null}"></div>
-        <div th:insert="~{user/template_user::header_User}" th:unless="${id==null}"></div>
+        <div th:insert="~{user/template_user::header_home}" th:if="${user==null}"></div>
+        <div th:insert="~{user/template_user::header_User(usuario=${user})}" th:unless="${user==null}"></div>
         
         <main>
             <div class="container-fluid d-flex align-items-center justify-content-center bg-light pt-5" style="min-height: 100vh;">
@@ -51,19 +51,19 @@
                                 <textarea class="form-control" id="inputMensaje" rows="5" placeholder="Escribe tu mensaje aquí..." ></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-dark w-100 mt-3" >Enviar</button>
+                            <a  th:href="@{/home}" class="btn btn-dark w-100 mt-3" >Enviar</a>
 
-                            <div class="toast-container position-fixed bottom-0 end-0 p-5">
+<!--                            <div class="toast-container position-fixed bottom-0 end-0 p-5">
                                 <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="width: 500px;">
                                     <div class="toast-header">
                                         <strong class="me-auto fs-5">Los datos del formulario se enviaron correctamente.</strong>
-                                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        <button type="button"  class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                                     </div>
                                     <div class="toast-body fs-5">
                                         Game Store - Play Everything
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
 
                         </div>
                     </form>
